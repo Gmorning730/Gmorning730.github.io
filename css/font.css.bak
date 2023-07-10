@@ -1,0 +1,56 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 4160346 */
+  /* Color fonts */
+  src: 
+       url('//at.alicdn.com/t/c/font_4160346_xfmrqc56y4n.woff2?t=1688988239120') format('woff2'),
+       url('//at.alicdn.com/t/c/font_4160346_xfmrqc56y4n.woff?t=1688988239120') format('woff'),
+       url('//at.alicdn.com/t/c/font_4160346_xfmrqc56y4n.ttf?t=1688988239120') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 18px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-ningmeng:before {
+  content: "\e7b0";
+}
+
+.icon-biaoqian:before {
+  content: "\e742";
+}
+
+.icon-dongwu:before {
+  content: "\e60b";
+}
+
+.icon-naicha:before {
+  content: "\e7b6";
+}
+
+.icon-compass:before {
+  content: "\e65a";
+}
+
+.icon-bojuelvpai-bieshu:before {
+  content: "\e879";
+}
+
+.icon-mianxinghaidao:before {
+  content: "\e612";
+}
+
+.icon-fanqie:before {
+  content: "\e654";
+}
+
+.icon-shiliu:before {
+  content: "\e7fe";
+}
+
+.icon-mianxinglvhangriji:before {
+  content: "\e71f";
+}
