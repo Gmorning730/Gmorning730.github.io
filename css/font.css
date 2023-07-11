@@ -1,18 +1,39 @@
 @font-face {
-  font-family: "iconfont"; /* Project id 4160346 */
+  font-family: "iconfont";
+  /* Project id 4160346 */
   /* Color fonts */
-  src: 
-       url('//at.alicdn.com/t/c/font_4160346_xfmrqc56y4n.woff2?t=1688988239120') format('woff2'),
-       url('//at.alicdn.com/t/c/font_4160346_xfmrqc56y4n.woff?t=1688988239120') format('woff'),
-       url('//at.alicdn.com/t/c/font_4160346_xfmrqc56y4n.ttf?t=1688988239120') format('truetype');
+  src:
+    url('//at.alicdn.com/t/c/font_4160346_1jismyp94x3.woff2?t=1689069106084') format('woff2'),
+    url('//at.alicdn.com/t/c/font_4160346_1jismyp94x3.woff?t=1689069106084') format('woff'),
+    url('//at.alicdn.com/t/c/font_4160346_1jismyp94x3.ttf?t=1689069106084') format('truetype');
 }
 
 .iconfont {
   font-family: "iconfont" !important;
-  font-size: 20px;
+  font-size: 16px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-yumi:before {
+  content: "\e668";
+}
+
+.icon-xls:before {
+  content: "\e7b5";
+}
+
+.icon-ppt:before {
+  content: "\e7b7";
+}
+
+.icon-word:before {
+  content: "\e7b8";
+}
+
+.icon-zip:before {
+  content: "\e7b9";
 }
 
 .icon-ningmeng:before {
