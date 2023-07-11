@@ -1,5 +1,6 @@
 function obcboPic() {
     var backPicture = document.getElementById("page-header");
+    if (backPicture.style.backgroundImage == "") {
         var background_urls = [
             'https://s2.loli.net/2022/01/29/yX7lju25TbMVLnS.jpg',
             'https://s2.loli.net/2022/01/29/AyD3mTLvPa6YxN4.jpg',
@@ -25,4 +26,5 @@ function obcboPic() {
         var urlPhoto = ('background-image:url(' + url + ')');
         console.log("BackGround URL:" + url);
         backPicture.setAttribute("style", urlPhoto);
+    }
 }

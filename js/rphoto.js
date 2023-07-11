@@ -1,30 +1,13 @@
-function obcboPic() {
-    var backPicture = document.getElementById("page-header");
-    if (backPicture.style.backgroundImage == "") {
-        var background_urls = [
-            'https://s2.loli.net/2022/01/29/yX7lju25TbMVLnS.jpg',
-            'https://s2.loli.net/2022/01/29/AyD3mTLvPa6YxN4.jpg',
-            'https://s2.loli.net/2022/01/29/2ANgyCud5mf9SLX.jpg',
-            'https://s2.loli.net/2022/01/29/ijTcD4sNQGtI7aO.jpg',
-            'https://s2.loli.net/2022/01/29/lZfxzh2w83Y7UAH.jpg',
-            'https://s2.loli.net/2022/01/29/7fWJp48Dm6kV3tA.jpg',
-            'https://s2.loli.net/2022/01/29/Bt7njKX3pckosEA.jpg',
-            'https://s2.loli.net/2022/01/29/YfIERQGwPyWpF95.jpg',
-            'https://s2.loli.net/2022/01/29/oZUCqWKr2w1DO35.jpg',
-            'https://s2.loli.net/2022/01/29/2n34ZH1LEsWgxJI.jpg',
-            'https://s2.loli.net/2022/01/29/anU8Pp4syA1DfcJ.jpg',
-            'https://s2.loli.net/2022/01/29/TbcZ3pC4ev7MBKS.jpg',
-            'https://s2.loli.net/2022/01/29/WpYuKRmxjNkzt8a.jpg',
-            'https://s2.loli.net/2022/01/29/PHR7bGNJgpS1xrB.jpg',
-            'https://s2.loli.net/2022/01/29/eJqjtFW329GiLQD.jpg',
-            'https://s2.loli.net/2022/01/29/MgK18FvA9rc7ipV.jpg',
-            'https://s2.loli.net/2022/01/29/E4br3gUDTLVKp8o.jpg',
-            'https://s2.loli.net/2022/01/29/WDzVHu9MgtC1fQ4.jpg',
-            'https://s2.loli.net/2022/01/29/wPavu8hCZL5VXmN.jpg'
-        ]
-        var url = background_urls[Math.floor((Math.random() * background_urls.length))];
-        var urlPhoto = ('background-image:url(' + url + ')');
-        console.log("BackGround URL:" + url);
-        backPicture.setAttribute("style", urlPhoto);
-    }
-}
+let backimg =["url(https://cdn.pixabay.com/photo/2020/12/19/20/55/tavern-5845319_1280.jpg)",
+"url(https://cdn.pixabay.com/photo/2021/10/22/11/13/tree-6732358_1280.jpg)",
+"url(https://cdn.pixabay.com/photo/2020/09/22/20/13/beach-5594231_1280.jpg),
+"url(https://cdn.pixabay.com/photo/2020/11/28/20/33/shore-5785685_1280.jpg)",
+"url(https://cdn.pixabay.com/photo/2020/12/22/21/26/mountains-5853360_1280.jpg)",
+"url(https://cdn.pixabay.com/photo/2020/04/11/05/29/architecture-5028845_1280.jpg)",
+"url(https://cdn.pixabay.com/photo/2021/03/07/10/19/coast-6075814_1280.jpg)",
+"url(https://cdn.pixabay.com/photo/2016/09/28/14/16/old-town-1700592_1280.jpg)",
+"url(https://cdn.pixabay.com/photo/2016/09/11/00/56/greece-1660496_1280.jpg)",
+"url(https://cdn.pixabay.com/photo/2016/04/30/14/07/tavern-1362960_1280.jpg)",
+"url(https://cdn.pixabay.com/photo/2020/04/09/06/35/tavern-5019944_1280.jpg)"];
+let index =Math.ceil(Math.random() * (backimg.length-1));
+document.getElementById("web_bg").style.backgroundImage = backimg[index]
