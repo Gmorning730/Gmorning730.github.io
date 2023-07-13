@@ -196,7 +196,7 @@
       <link href="/2023/07/11/template/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF/"/>
       <url>/2023/07/11/template/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF/</url>
       
-        <content type="html"><![CDATA[<h3 id="1-图片模板"><a href="#1-图片模板" class="headerlink" title="1.图片模板"></a>1.图片模板</h3><div>    <img src="/2023/07/11/template/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF/essence.jpg" height="300px" style="border: solid #c3c3c2;border-radius: 6px;">    <h4 style="text-align: center;color: #403f3d;font-family:kaiti">图1 行列式的定义</h4></div> <h3 id="2-音乐模板"><a href="#2-音乐模板" class="headerlink" title="2.音乐模板"></a>2.音乐模板</h3><div style="background-color: #c5e8ed; border: 2px solid black; border-radious:3px">    <font color="#252525" size="6" face="??">section1: ???????</font></div>]]></content>
+        <content type="html"><![CDATA[<h3 id="1-图片模板"><a href="#1-图片模板" class="headerlink" title="1.图片模板"></a>1.图片模板</h3><div>    <img src="/.io//essence.jpg" height="300px" style="border: solid #c3c3c2;border-radius: 6px;">    <h4 style="text-align: center;color: #403f3d;font-family:kaiti">图1 行列式的定义</h4></div> <h3 id="2-音乐模板"><a href="#2-音乐模板" class="headerlink" title="2.音乐模板"></a>2.音乐模板</h3><div style="background-color: #c5e8ed; border: 2px solid black; border-radious:3px">    <font color="#252525" size="6" face="??">section1: ???????</font></div>]]></content>
       
       
       
@@ -209,7 +209,7 @@
       <link href="/2023/07/11/vscode%E5%B8%B8%E7%94%A8%E7%9A%84%E5%8A%9F%E8%83%BD%E8%AE%BE%E7%BD%AE/"/>
       <url>/2023/07/11/vscode%E5%B8%B8%E7%94%A8%E7%9A%84%E5%8A%9F%E8%83%BD%E8%AE%BE%E7%BD%AE/</url>
       
-        <content type="html"><![CDATA[<h3 id="设置vscode自动保存功能"><a href="#设置vscode自动保存功能" class="headerlink" title="设置vscode自动保存功能"></a>设置vscode自动保存功能</h3><p><a href="https://blog.csdn.net/qq_70703397/article/details/129281455">转载</a></p><ol><li>shift + ctrl + p快速打开设置</li><li>搜索Auto Save</li><li>根据功能选择相应的实现方式，我选择的是在焦点变化时保存（当你鼠标换到屏幕内的另一个地方）<div> <img src="/2023/07/11/vscode%E5%B8%B8%E7%94%A8%E7%9A%84%E5%8A%9F%E8%83%BD%E8%AE%BE%E7%BD%AE/save.png" height="300px" style="border: solid #c3c3c2;border-radius: 5px;"> <h4 style="text-align: center;color: #403f3d">图1 设置自动保存方式</h4></div></li></ol><h3 id="设置vscode终端使用默认cmd"><a href="#设置vscode终端使用默认cmd" class="headerlink" title="设置vscode终端使用默认cmd"></a>设置vscode终端使用默认cmd</h3><p><a href="https://blog.csdn.net/shoppingend/article/details/118700194">转载</a></p><h3 id><a href="#" class="headerlink" title></a></h3>]]></content>
+        <content type="html"><![CDATA[<h3 id="设置vscode自动保存功能"><a href="#设置vscode自动保存功能" class="headerlink" title="设置vscode自动保存功能"></a>设置vscode自动保存功能</h3><p><a href="https://blog.csdn.net/qq_70703397/article/details/129281455">转载</a></p><ol><li>shift + ctrl + p快速打开设置</li><li>搜索Auto Save</li><li>根据功能选择相应的实现方式，我选择的是在焦点变化时保存（当你鼠标换到屏幕内的另一个地方）<div> <img src="/.io//save.png" height="300px" style="border: solid #c3c3c2;border-radius: 5px;"> <h4 style="text-align: center;color: #403f3d">图1 设置自动保存方式</h4></div></li></ol><h3 id="设置vscode终端使用默认cmd"><a href="#设置vscode终端使用默认cmd" class="headerlink" title="设置vscode终端使用默认cmd"></a>设置vscode终端使用默认cmd</h3><p><a href="https://blog.csdn.net/shoppingend/article/details/118700194">转载</a></p><h3 id><a href="#" class="headerlink" title></a></h3>]]></content>
       
       
       
