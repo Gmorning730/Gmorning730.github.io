@@ -1,0 +1,25 @@
+/* aside公告栏按钮美化 */
+.social-button .button--animated {
+    background: #49b1f5;
+    color: rgb(255, 255, 255);
+    display: block;
+    margin: 5px 0;
+    text-align: center;
+    line-height: 2.4;
+    transition: 0.3s;
+    border-radius: 3px;
+}
+
+.social-button .button--animated:hover {
+    background-color: #49b1f5;
+}
+
+.social-button .button--animated:active {
+    background-color: #49b1f5;
+}
+
+#card_announcement_gif {
+    border-radius: 5px;
+    width: 240px;
+    height: 240px;
+}
