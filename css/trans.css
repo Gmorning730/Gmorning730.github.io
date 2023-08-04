@@ -13,24 +13,24 @@
     backdrop-filter: blur(10px);
 } */
 
-.layout>div:first-child:not(.recent-posts) {
-    background: rgba(255, 255, 255, 0.86);
+/* .layout>div:first-child:not(.recent-posts) {
+    background: rgba(255, 255, 255, 0.84);
     backdrop-filter: blur(10px);
 }
 
 #recent-posts>.recent-post-item {
-    background: rgba(255, 255, 255, 0.86);
+    background: rgba(255, 255, 255, 0.84);
     backdrop-filter: blur(10px);
 }
 
-/*标题栏*/
+标题栏
 #page-header.nav-visible #nav {
     background: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(50px);
 }
 
 /*搜索框美化*/
-.search-dialog {
+/* .search-dialog {
     background: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(10px);
     border-radius: 0px;
@@ -38,14 +38,14 @@
 
 #search-mask {
     background: rgba(255, 255, 255, 0);
-}
+} */
 
 /*手机端毛玻璃优化*/
-#sidebar #sidebar-menus.open {
+/* #sidebar #sidebar-menus.open {
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
-}
-
+} */
+/* 
 #sidebar #menu-mask {
     background: rgba(255, 255, 255, 0.8);
-}
+} */
