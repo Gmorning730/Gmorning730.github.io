@@ -4,9 +4,34 @@
   
     
     <entry>
+      <title>编译器概述</title>
+      <link href="/2023/10/23/%E7%BC%96%E8%AF%91%E5%99%A8%E6%A6%82%E8%BF%B0/"/>
+      <url>/2023/10/23/%E7%BC%96%E8%AF%91%E5%99%A8%E6%A6%82%E8%BF%B0/</url>
+      
+        <content type="html"><![CDATA[<h3 id="编译器的定义与分类"><a href="#编译器的定义与分类" class="headerlink" title="编译器的定义与分类"></a>编译器的定义与分类</h3><p>Q:平常软件的输入输出是什么？<br>A：举例：美图秀秀输入原始照片，输出修图调节后的照片；语音识别：输入语音输出识别后的文本。</p><p>定义：</p><ul><li>把高级编写的程序转换为源程序、目标代码、中间语言程序这几种类型。</li><li>中间语言-&gt;可执行代码</li><li>一种汇编-&gt;另一种汇编</li><li>一种二进制-&gt;另外一种二进制</li></ul><p>Q：静态编译和动态编译的区别？<br>A：静态编译运行在编译之后，动态编译编译和运行同时发生。</p><h3 id="程序的中间表示"><a href="#程序的中间表示" class="headerlink" title="程序的中间表示"></a>程序的中间表示</h3><p><img src="https://raw.githubusercontent.com/Gmorning730/BlogImage/main/img/image-20231024214115860.png"></p><p><img src="https://raw.githubusercontent.com/Gmorning730/BlogImage/main/img/image-20231024214531673.png" alt="image-20231024214531673"></p><p><img src="https://raw.githubusercontent.com/Gmorning730/BlogImage/main/img/image-20231024214721998.png" alt="image-20231024214721998"></p><h3 id="符号表"><a href="#符号表" class="headerlink" title="符号表"></a>符号表</h3><p><img src="https://raw.githubusercontent.com/Gmorning730/BlogImage/main/img/image-20231024215116260.png" alt="image-20231024215116260"></p><h3 id="程序运行时的内存组织"><a href="#程序运行时的内存组织" class="headerlink" title="程序运行时的内存组织"></a>程序运行时的内存组织</h3><p><img src="https://raw.githubusercontent.com/Gmorning730/BlogImage/main/img/image-20231024215319454.png" alt="image-20231024215319454"></p><h3 id="程序分析和优化"><a href="#程序分析和优化" class="headerlink" title="程序分析和优化"></a>程序分析和优化</h3><p><img src="https://raw.githubusercontent.com/Gmorning730/BlogImage/main/img/image-20231024215611303.png" alt="image-20231024215611303"></p><p><img src="https://raw.githubusercontent.com/Gmorning730/BlogImage/main/img/image-20231024215732976.png" alt="image-20231024215732976"></p><h3 id="交叉编译"><a href="#交叉编译" class="headerlink" title="交叉编译"></a>交叉编译</h3><h3 id="用编译器优化程序的迭代循环"><a href="#用编译器优化程序的迭代循环" class="headerlink" title="用编译器优化程序的迭代循环"></a>用编译器优化程序的迭代循环</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> 专业知识基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 系统专业课 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>研读用于识别编译器关键优化的热点驱动半自动竞争分析框架</title>
-      <link href="/2023/10/07/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-%E7%94%A8%E4%BA%8E%E8%AF%86%E5%88%AB%E7%BC%96%E8%AF%91%E5%99%A8%E5%85%B3%E9%94%AE%E4%BC%98%E5%8C%96%E7%9A%84%E7%83%AD%E7%82%B9%E9%A9%B1%E5%8A%A8%E5%8D%8A%E8%87%AA%E5%8A%A8%E7%AB%9E%E4%BA%89%E5%88%86%E6%9E%90%E6%A1%86%E6%9E%B6/"/>
-      <url>/2023/10/07/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-%E7%94%A8%E4%BA%8E%E8%AF%86%E5%88%AB%E7%BC%96%E8%AF%91%E5%99%A8%E5%85%B3%E9%94%AE%E4%BC%98%E5%8C%96%E7%9A%84%E7%83%AD%E7%82%B9%E9%A9%B1%E5%8A%A8%E5%8D%8A%E8%87%AA%E5%8A%A8%E7%AB%9E%E4%BA%89%E5%88%86%E6%9E%90%E6%A1%86%E6%9E%B6/</url>
+      <link href="/2023/10/05/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-%E7%94%A8%E4%BA%8E%E8%AF%86%E5%88%AB%E7%BC%96%E8%AF%91%E5%99%A8%E5%85%B3%E9%94%AE%E4%BC%98%E5%8C%96%E7%9A%84%E7%83%AD%E7%82%B9%E9%A9%B1%E5%8A%A8%E5%8D%8A%E8%87%AA%E5%8A%A8%E7%AB%9E%E4%BA%89%E5%88%86%E6%9E%90%E6%A1%86%E6%9E%B6/"/>
+      <url>/2023/10/05/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-%E7%94%A8%E4%BA%8E%E8%AF%86%E5%88%AB%E7%BC%96%E8%AF%91%E5%99%A8%E5%85%B3%E9%94%AE%E4%BC%98%E5%8C%96%E7%9A%84%E7%83%AD%E7%82%B9%E9%A9%B1%E5%8A%A8%E5%8D%8A%E8%87%AA%E5%8A%A8%E7%AB%9E%E4%BA%89%E5%88%86%E6%9E%90%E6%A1%86%E6%9E%B6/</url>
       
         <content type="html"><![CDATA[<h3 id="相关知识"><a href="#相关知识" class="headerlink" title="相关知识"></a>相关知识</h3><p>1.<strong>热点代码：</strong> 意指在程序运行时频繁执行的部分代码，这些代码可能会成为性能瓶颈，因此通过识别热点代码可以实现程序运行时的性能优化。</p><p>2.<strong>动态二进制检测：</strong> 一种用于分析和测试计算机程序的方法，它在程序执行时，对程序的二进制代码进行分析。与静态分析不同，动态二进制检测是在程序运行时获取和分析信息，这使得它能够捕获程序的实际行为和状态。</p><p>3.<strong>热点的指令表征：</strong> 是指在程序执行期间特定代码段（通常是循环或频繁执行的代码块）的指令序列的特性或表示。这些特性用于分析和优化程序的性能。</p><p>4.<strong>二进制文件热点检测的一般过程：</strong></p><p>二进制文件的热点检测过程是指在分析程序的二进制可执行文件时，识别和定位程序中的热点代码段的过程。热点代码段通常是程序中频繁执行的部分，可能会对程序的性能产生显著影响。以下是一般的二进制文件热点检测过程的关键步骤：</p><p>（1） 二进制反汇编：首先，将二进制可执行文件反汇编为汇编代码，以便进一步分析。这一步通常由反汇编工具执行。</p><p>（2）指令计数：对反汇编后的代码进行指令计数，以确定哪些指令或代码块在程序执行期间被频繁执行。这可以通过跟踪指令的执行次数或执行路径来实现。</p><p>（3）性能分析：根据指令计数信息，进行性能分析以确定哪些代码段对程序性能产生显著影响。这可能包括查找执行时间最长的代码段或具有高频率的代码块。</p><p>（4）热点识别：识别具有高频率执行的代码段，这些代码段通常被称为热点。热点是可能需要进一步优化的目标。</p><p>（5）指令特征提取：对热点代码段进行进一步分析，提取其指令特征，如指令序列、数据依赖关系、内存访问模式等。这有助于更深入地了解热点的性能特性。</p><p>（6）优化或分析：根据热点检测的结果，可以选择优化热点代码段以提高程序性能，也可以进行更深入的分析以解决性能问题或改进程序。</p><p>（7）重复性能测试：在进行优化或分析后，通常需要对程序进行重复性能测试以验证改进是否产生了预期的效果。</p><p>5.<strong>代码执行时编译器的作用如下：</strong></p><p>（1）词法分析：编译器通过将源代码分解成单词和标识符等，这个过程中编译器会识别代码中的每个元素，并进行标识。</p><p>（2）语法分析：编译器接着分析源代码的语法结构，构建抽象语法树（Abstract Syntax Tree，AST），以确定代码的结构和逻辑。</p><p>（3）语义分析：编译器进行语义分析以检查代码是否符合编程语言的语义规则。它会检查类型匹配、变量的范围、函数的参数和返回值等方面的问题。</p><p>（4）优化：在生成目标代码之前，编译器通常会执行一系列优化步骤，以提高程序的性能和效率。这包括常量折叠、死代码消除、循环展开、内联函数等。优化可以根据目标硬件架构和编译器设置进行自定义，以最大程度地提高执行速度。</p><p>（5）代码生成：编译器会生成目标代码，这是可以在特定计算机架构上运行的机器代码。这个机器代码包括汇编指令，负责执行相应的操作。</p><p>（6）链接：在需要时，编译器还可以处理链接步骤，将不同源文件中的代码合并成一个可执行程序，解决符号引用和库依赖等问题。</p><ol start="6"><li><strong>DBI工具的原理：</strong></li></ol><p>插桩（Instrumentation）：DBI工具会在二进制程序的指令中插入附加代码，用于捕获或修改程序的行为。这些插桩可以用于收集性能数据、跟踪程序执行、监视内存访问等。</p><p>动态分析：一旦程序运行，DBI工具会在执行时拦截和检查指令，执行插桩代码，然后将控制返回给原始程序。这使得工具可以在程序执行时收集信息、进行分析或修改程序行为。</p><p>反馈和控制：DBI工具可以提供反馈，如执行时间、内存访问、指令计数等，以帮助分析程序的性能和行为。它还可以通过插桩代码来控制程序的执行，如修改寄存器值、跳转到其他代码块等。</p><h3 id="研究背景"><a href="#研究背景" class="headerlink" title="研究背景"></a>研究背景</h3><p><img src="https://raw.githubusercontent.com/Gmorning730/BlogImage/main/img/20231010193228.png" alt="研究背景"></p><h3 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h3><p><img src="https://raw.githubusercontent.com/Gmorning730/BlogImage/main/img/20231010193404.png"></p><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p><img src="https://raw.githubusercontent.com/Gmorning730/BlogImage/main/img/20231010193656.png"></p><h3 id="设计与实现"><a href="#设计与实现" class="headerlink" title="设计与实现"></a>设计与实现</h3><h3 id="评价"><a href="#评价" class="headerlink" title="评价"></a>评价</h3><h3 id="思考与讨论"><a href="#思考与讨论" class="headerlink" title="思考与讨论"></a>思考与讨论</h3>]]></content>
       
@@ -59,7 +84,7 @@
       <link href="/2023/09/06/%E9%BB%8E%E6%98%8E%E7%A0%B4%E6%99%93%E4%B9%8B%E6%97%A5/"/>
       <url>/2023/09/06/%E9%BB%8E%E6%98%8E%E7%A0%B4%E6%99%93%E4%B9%8B%E6%97%A5/</url>
       
-        <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">  <script id="hbeData" type="hbeData" data-hmacdigest="7c318a22e852a4b85bc2a534c5a4f6458df8b1a1654c7d338f576b1f897600d6">aad056d760d37af61e9208b0dbddcb0c9f1229a9ba1d5b41c2e259f52ac88e70fa88cd9e53a60d503cc46b27935912415cb431024d9540b40095035765221f6867b66da4b4c5436c8b977c60e63941aa8af1054935bde86c7f1a4831751de5cf0bfb563486a06e83bfe7ea21be39d5d2c7ef58a6570c438ddc4d7853b2ad83b1b50747cbaeeaa6c0e84f67b2a5fadf4df99bfcbba09148c08d2785405ce80fc050f13a5331aade39894d42422667a12e86ad88569801eb6a6f008aa344286725ed902aa796a096c7e64d3a26f8bcd39e5f60523d9c67d7522466c18fee30ae625145514bd314a16c764fc3773dcb5637bd141c8cc1b5c0363395c8cf561435d399cf5faf97da195721d14a4de950e200fcc0ae0c38684f1522f000f97d94850d4cdaf25583adeedaf4c14f3c4e2193c629930e904f7c304fd0aa2749c0a96a612eb6d32b41dfb8a7097840b2f5932627e29cb051677bc8d1097e301b86c7aaa04dfecba19714fd2dc9761f1514d50c92ecb80c746f2447cc21af439781d39ca99aa63c1f24e3ccd9c18bc6860fd26fbe65e102c6a52d1ad91a8a4c8bd40904a748424253c6114037c684a487f843e38f753d13d064795b1a70644ed810c576830cdb20d5e02203c23e1a4ac4ce30047c1a32abba33ca0a308a066897fda7709fedf661c00f72ec752cd9b5d1a0d4a0d6828f33397a89d78b5237fa6df11189a8bde515aaa42434afa4e4aa6877db8d9eb9e0454c17262d98c665a8cfd7bfcf5dc71d01c3e0510f2f23e393092b6ecd147f9242ddf747aab3f59fdb94c8d978fa7c84b5cf2ebe19a9976bfb9d054a8c5788ff483cac7ec39f1e186eb4b72981763ad428113d00f4c135c82eead6c7a04cd646467939103c998f9da154273a33e4ab3e8f2f365656bad8180d0e970d80be73cff817e16719f98af41fa5f601b369bf3517797b1d4cc0b34389ddd01cff15530c7fde827e3081c602b5c9846638ca48883033d64e2ec71d10c0a7e4bddfa1a78c7036f29dca320e3b81d0a603b26124ab4741e6cefa02ecdaae2ff707c82d1e9099335941f492104f9b02e89542a62293d781debac21a618a16c5a01b7f7768b1c4cf3f6665062be8bb0cf0ab853d006d211c5464b748034db554a4ab8037</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-default">      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>      </label>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+        <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="好像....不是这把" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">  <script id="hbeData" type="hbeData" data-hmacdigest="7c318a22e852a4b85bc2a534c5a4f6458df8b1a1654c7d338f576b1f897600d6">aad056d760d37af61e9208b0dbddcb0c9f1229a9ba1d5b41c2e259f52ac88e70fa88cd9e53a60d503cc46b27935912415cb431024d9540b40095035765221f6867b66da4b4c5436c8b977c60e63941aa8af1054935bde86c7f1a4831751de5cf0bfb563486a06e83bfe7ea21be39d5d2c7ef58a6570c438ddc4d7853b2ad83b1b50747cbaeeaa6c0e84f67b2a5fadf4df99bfcbba09148c08d2785405ce80fc050f13a5331aade39894d42422667a12e86ad88569801eb6a6f008aa344286725ed902aa796a096c7e64d3a26f8bcd39e5f60523d9c67d7522466c18fee30ae625145514bd314a16c764fc3773dcb5637bd141c8cc1b5c0363395c8cf561435d399cf5faf97da195721d14a4de950e200fcc0ae0c38684f1522f000f97d94850d4cdaf25583adeedaf4c14f3c4e2193c629930e904f7c304fd0aa2749c0a96a612eb6d32b41dfb8a7097840b2f5932627e29cb051677bc8d1097e301b86c7aaa04dfecba19714fd2dc9761f1514d50c92ecb80c746f2447cc21af439781d39ca99aa63c1f24e3ccd9c18bc6860fd26fbe65e102c6a52d1ad91a8a4c8bd40904a748424253c6114037c684a487f843e38f753d13d064795b1a70644ed810c576830cdb20d5e02203c23e1a4ac4ce30047c1a32abba33ca0a308a066897fda7709fedf661c00f72ec752cd9b5d1a0d4a0d6828f33397a89d78b5237fa6df11189a8bde515aaa42434afa4e4aa6877db8d9eb9e0454c17262d98c665a8cfd7bfcf5dc71d01c3e0510f2f23e393092b6ecd147f9242ddf747aab3f59fdb94c8d978fa7c84b5cf2ebe19a9976bfb9d054a8c5788ff483cac7ec39f1e186eb4b72981763ad428113d00f4c135c82eead6c7a04cd646467939103c998f9da154273a33e4ab3e8f2f365656bad8180d0e970d80be73cff817e16719f98af41fa5f601b369bf3517797b1d4cc0b34389ddd01cff15530c7fde827e3081c602b5c9846638ca48883033d64e2ec71d10c0a7e4bddfa1a78c7036f29dca320e3b81d0a603b26124ab4741e6cefa02ecdaae2ff707c82d1e9099335941f492104f9b02e89542a62293d781debac21a618a16c5a01b7f7768b1c4cf3f6665062be8bb0cf0ab853d006d211c5464b748034db554a4ab8037</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-xray">      <input class="hbe hbe-input-field hbe-input-field-xray" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-xray" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-xray">你需要有叩开我心门的钥匙</span>      </label>      <svg class="hbe hbe-graphic hbe-graphic-xray" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">        <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>        <path d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0"></path>      </svg>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
       
       
       
@@ -580,31 +605,6 @@
         <tags>
             
             <tag> 数据科学与工程 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>深入理解计算机系统</title>
-      <link href="/2023/07/09/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"/>
-      <url>/2023/07/09/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 专业知识基础 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 系统专业课 </tag>
             
         </tags>
       
