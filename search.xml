@@ -4,6 +4,44 @@
   
     
     <entry>
+      <title>布尔逻辑和逻辑门</title>
+      <link href="/2023/12/03/%E5%B8%83%E5%B0%94%E9%80%BB%E8%BE%91%E5%92%8C%E9%80%BB%E8%BE%91%E9%97%A8/"/>
+      <url>/2023/12/03/%E5%B8%83%E5%B0%94%E9%80%BB%E8%BE%91%E5%92%8C%E9%80%BB%E8%BE%91%E9%97%A8/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1 简介"></a>1 简介</h3><p>计算机是由二进制表示的，起初人们试过3进制和5进制，但是当状态存在的越多的时候，我们越难以区分不同状态之间的界限。你的手机显示电量不足很可能是因为周围微波炉信号的干扰，想想看那样是不是很糟糕。</p><p>二进制代表两个状态：true or false ，仅仅靠着这两个状态我们就可以实现控制晶体管，执行相应的程序，不夸张的说，有了二进制，你就拥有了全世界。</p><h3 id="2-布尔代数"><a href="#2-布尔代数" class="headerlink" title="2 布尔代数"></a>2 布尔代数</h3><p>和通常我们所学的代数不同，逻辑代数的值只有 True ，false和逻辑操作，当然由他的名字我们很容易知道，他是由英国数学家布尔发明的。布尔代数又称作逻辑代数。</p><h3 id="3-逻辑门"><a href="#3-逻辑门" class="headerlink" title="3 逻辑门"></a>3 逻辑门</h3><p>对于逻辑运算 ，我们可以通过简单的晶体管实现：</p><ul><li><p>not：</p></li><li><p>or：</p></li><li><p>and：</p></li><li><p>xor：</p></li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 计算机基础课程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>极简编译原理</title>
+      <link href="/2023/12/03/%E6%9E%81%E7%AE%80%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"/>
+      <url>/2023/12/03/%E6%9E%81%E7%AE%80%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/</url>
+      
+        <content type="html"><![CDATA[<p>** </p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 编译原理 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>编译器概述</title>
       <link href="/2023/10/23/%E7%BC%96%E8%AF%91%E5%99%A8%E6%A6%82%E8%BF%B0/"/>
       <url>/2023/10/23/%E7%BC%96%E8%AF%91%E5%99%A8%E6%A6%82%E8%BF%B0/</url>
