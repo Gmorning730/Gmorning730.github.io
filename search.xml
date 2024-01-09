@@ -1,0 +1,806 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2024/01/07/hello-world/"/>
+      <url>/2024/01/07/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a><br>哈哈: ![tupian]</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>CMake学习</title>
+      <link href="/2023/12/08/CMake%E5%AD%A6%E4%B9%A0/"/>
+      <url>/2023/12/08/CMake%E5%AD%A6%E4%B9%A0/</url>
+      
+        <content type="html"><![CDATA[<h4 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h4><p>CMake是一个跨平台的编译工具，可以用简单的语句来描述所有平台的编译过程。 CMake能够输出各种各样的makefile或者project文件，能测试编译器所支持的C++特性。 CMake的配置文件叫做CMakeLists.txt。 CMake不直接生成最终的软件，而是生成标准的构建文件，然后再用一般的构建方式使用。 CMake可以帮助开发者在复杂的项目中管理编译关系，简化二次开发的过程。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Linux 工具使用 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>BOLT学习笔记</title>
+      <link href="/2023/12/05/BOLT%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <url>/2023/12/05/BOLT%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<h4 id="背景"><a href="#背景" class="headerlink" title="背景:"></a>背景:</h4><p>数据中心应用程序通常非常庞大和复杂，因此代码布局成为提高性能的重要优化手段。BOLT是一个链接后优化工具，它可以对已经编译和链接的二进制文件进行重新代码布局和优化，以提高程序的性能。文章证明了，虽然在早期注入配置文件可以通过更多的优化使用，但稍后注入可以更准确的使用信息，以获得更好的代码布局。</p><h4 id="主要贡献"><a href="#主要贡献" class="headerlink" title="主要贡献:"></a>主要贡献:</h4><ul><li>描述了基于LLVM架构的优化</li><li>后链接优化可更好的利用分析数据</li><li>编译时、链接时、后链接 FDO 之间互补而非互相替代。</li></ul><h4 id="BOLT工具介绍"><a href="#BOLT工具介绍" class="headerlink" title="BOLT工具介绍:"></a>BOLT工具介绍:</h4><p>BOLT是一个后链接二进制优化工具，通过重新布局应用程序的二进制代码，从而减少指令缓存（ICache）不命中率。因为ICache不命中会对性能产生重大影响，特别是对于那些指令密集型的应用程序。</p><h4 id="执行流程"><a href="#执行流程" class="headerlink" title="执行流程:"></a>执行流程:</h4><p>1.BOLT首先分析程序的执行，收集关于分支和基于性能的信息。<br>2.它利用这些信息来重新布局二进制文件的函数和基本块，以减少ICache的不命中。<br>3.通过调整代码以利用现代硬件上的其他特性。</p><h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><p>与其他优化技术相比，BOLT具有更好的性能提升，尤其是对于大型、长时间运行的应用程序。BOLT不需要源代码进行优化，可以直接在二进制文件上操作。</p><h4 id="工作机制"><a href="#工作机制" class="headerlink" title="工作机制"></a>工作机制</h4><h5 id="profile-guided的反馈"><a href="#profile-guided的反馈" class="headerlink" title="profile-guided的反馈:"></a>profile-guided的反馈:</h5><p>BOLT首先运行应用程序以收集其执行profile。这通常使用Linux的perf工具来完成。通过这种方式，BOLT能够了解哪些代码块和函数被频繁地执行和访问。</p><h5 id="二进制解析和转换"><a href="#二进制解析和转换" class="headerlink" title="二进制解析和转换:"></a>二进制解析和转换:</h5><p>BOLT解析输入的二进制文件，创建内部的中间表示。<br>这允许BOLT修改和优化二进制代码，而不必担心具体的汇编语法和细节。</p><h5 id="代码重新布局"><a href="#代码重新布局" class="headerlink" title="代码重新布局:"></a>代码重新布局:</h5><p>根据前面收集的性能数据，BOLT会重新布局函数和基本块。<br>在函数内部，BOLT可以重新布局基本块，频繁执行的路径）在ICache中连续。</p><h5 id="输出优化后的二进制"><a href="#输出优化后的二进制" class="headerlink" title="输出优化后的二进制:"></a>输出优化后的二进制:</h5><p>经过所有这些转换和优化后，BOLT会生成一个新的、优化过的二进制文件。这个新的二进制文件可以替代原始文件，通常会有更好的性能表现。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Linux 工具使用 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>布尔逻辑和逻辑门</title>
+      <link href="/2023/12/03/%E5%B8%83%E5%B0%94%E9%80%BB%E8%BE%91%E5%92%8C%E9%80%BB%E8%BE%91%E9%97%A8/"/>
+      <url>/2023/12/03/%E5%B8%83%E5%B0%94%E9%80%BB%E8%BE%91%E5%92%8C%E9%80%BB%E8%BE%91%E9%97%A8/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1 简介"></a>1 简介</h3><p>计算机是由二进制表示的，起初人们试过3进制和5进制，但是当状态存在的越多的时候，我们越难以区分不同状态之间的界限。你的手机显示电量不足很可能是因为周围微波炉信号的干扰，想想看那样是不是很糟糕。</p><p>二进制代表两个状态：true or false ，仅仅靠着这两个状态我们就可以实现控制晶体管，执行相应的程序，不夸张的说，有了二进制，你就拥有了全世界。</p><h3 id="2-布尔代数"><a href="#2-布尔代数" class="headerlink" title="2 布尔代数"></a>2 布尔代数</h3><p>和通常我们所学的代数不同，逻辑代数的值只有 True ，false和逻辑操作，当然由他的名字我们很容易知道，他是由英国数学家布尔发明的。布尔代数又称作逻辑代数。</p><h3 id="3-逻辑门"><a href="#3-逻辑门" class="headerlink" title="3 逻辑门"></a>3 逻辑门</h3><p>对于逻辑运算 ，我们可以通过简单的晶体管实现：</p><ul><li><p>not：</p></li><li><p>or：</p></li><li><p>and：</p></li><li><p>xor：</p></li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 计算机基础课程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>编译器概述</title>
+      <link href="/2023/10/23/%E7%BC%96%E8%AF%91%E5%99%A8%E6%A6%82%E8%BF%B0/"/>
+      <url>/2023/10/23/%E7%BC%96%E8%AF%91%E5%99%A8%E6%A6%82%E8%BF%B0/</url>
+      
+        <content type="html"><![CDATA[<h3 id="编译器的定义与分类"><a href="#编译器的定义与分类" class="headerlink" title="编译器的定义与分类"></a>编译器的定义与分类</h3><p>Q:平常软件的输入输出是什么？<br>A：举例：美图秀秀输入原始照片，输出修图调节后的照片；语音识别：输入语音输出识别后的文本。</p><p>定义：</p><ul><li>把高级编写的程序转换为源程序、目标代码、中间语言程序这几种类型。</li><li>中间语言-&gt;可执行代码</li><li>一种汇编-&gt;另一种汇编</li><li>一种二进制-&gt;另外一种二进制</li></ul><p>Q：静态编译和动态编译的区别？<br>A：静态编译运行在编译之后，动态编译编译和运行同时发生。</p><h3 id="程序的中间表示"><a href="#程序的中间表示" class="headerlink" title="程序的中间表示"></a>程序的中间表示</h3><p><img src="https://raw.githubusercontent.com/Gmorning730/BlogImage/main/img/image-20231024214115860.png"></p><p><img src="https://raw.githubusercontent.com/Gmorning730/BlogImage/main/img/image-20231024214531673.png" alt="image-20231024214531673"></p><p><img src="https://raw.githubusercontent.com/Gmorning730/BlogImage/main/img/image-20231024214721998.png" alt="image-20231024214721998"></p><h3 id="符号表"><a href="#符号表" class="headerlink" title="符号表"></a>符号表</h3><p><img src="https://raw.githubusercontent.com/Gmorning730/BlogImage/main/img/image-20231024215116260.png" alt="image-20231024215116260"></p><h3 id="程序运行时的内存组织"><a href="#程序运行时的内存组织" class="headerlink" title="程序运行时的内存组织"></a>程序运行时的内存组织</h3><p><img src="https://raw.githubusercontent.com/Gmorning730/BlogImage/main/img/image-20231024215319454.png" alt="image-20231024215319454"></p><h3 id="程序分析和优化"><a href="#程序分析和优化" class="headerlink" title="程序分析和优化"></a>程序分析和优化</h3><p><img src="https://raw.githubusercontent.com/Gmorning730/BlogImage/main/img/image-20231024215611303.png" alt="image-20231024215611303"></p><p><img src="https://raw.githubusercontent.com/Gmorning730/BlogImage/main/img/image-20231024215732976.png" alt="image-20231024215732976"></p><h3 id="交叉编译"><a href="#交叉编译" class="headerlink" title="交叉编译"></a>交叉编译</h3><h3 id="用编译器优化程序的迭代循环"><a href="#用编译器优化程序的迭代循环" class="headerlink" title="用编译器优化程序的迭代循环"></a>用编译器优化程序的迭代循环</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> 专业知识基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 系统专业课 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>研读用于识别编译器关键优化的热点驱动半自动竞争分析框架</title>
+      <link href="/2023/10/05/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-%E7%94%A8%E4%BA%8E%E8%AF%86%E5%88%AB%E7%BC%96%E8%AF%91%E5%99%A8%E5%85%B3%E9%94%AE%E4%BC%98%E5%8C%96%E7%9A%84%E7%83%AD%E7%82%B9%E9%A9%B1%E5%8A%A8%E5%8D%8A%E8%87%AA%E5%8A%A8%E7%AB%9E%E4%BA%89%E5%88%86%E6%9E%90%E6%A1%86%E6%9E%B6/"/>
+      <url>/2023/10/05/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-%E7%94%A8%E4%BA%8E%E8%AF%86%E5%88%AB%E7%BC%96%E8%AF%91%E5%99%A8%E5%85%B3%E9%94%AE%E4%BC%98%E5%8C%96%E7%9A%84%E7%83%AD%E7%82%B9%E9%A9%B1%E5%8A%A8%E5%8D%8A%E8%87%AA%E5%8A%A8%E7%AB%9E%E4%BA%89%E5%88%86%E6%9E%90%E6%A1%86%E6%9E%B6/</url>
+      
+        <content type="html"><![CDATA[<h3 id="相关知识"><a href="#相关知识" class="headerlink" title="相关知识"></a>相关知识</h3><p>1.<strong>热点代码：</strong> 意指在程序运行时频繁执行的部分代码，这些代码可能会成为性能瓶颈，因此通过识别热点代码可以实现程序运行时的性能优化。</p><p>2.<strong>动态二进制检测：</strong> 一种用于分析和测试计算机程序的方法，它在程序执行时，对程序的二进制代码进行分析。与静态分析不同，动态二进制检测是在程序运行时获取和分析信息，这使得它能够捕获程序的实际行为和状态。</p><p>3.<strong>热点的指令表征：</strong> 是指在程序执行期间特定代码段（通常是循环或频繁执行的代码块）的指令序列的特性或表示。这些特性用于分析和优化程序的性能。</p><p>4.<strong>二进制文件热点检测的一般过程：</strong></p><p>二进制文件的热点检测过程是指在分析程序的二进制可执行文件时，识别和定位程序中的热点代码段的过程。热点代码段通常是程序中频繁执行的部分，可能会对程序的性能产生显著影响。以下是一般的二进制文件热点检测过程的关键步骤：</p><p>（1） 二进制反汇编：首先，将二进制可执行文件反汇编为汇编代码，以便进一步分析。这一步通常由反汇编工具执行。</p><p>（2）指令计数：对反汇编后的代码进行指令计数，以确定哪些指令或代码块在程序执行期间被频繁执行。这可以通过跟踪指令的执行次数或执行路径来实现。</p><p>（3）性能分析：根据指令计数信息，进行性能分析以确定哪些代码段对程序性能产生显著影响。这可能包括查找执行时间最长的代码段或具有高频率的代码块。</p><p>（4）热点识别：识别具有高频率执行的代码段，这些代码段通常被称为热点。热点是可能需要进一步优化的目标。</p><p>（5）指令特征提取：对热点代码段进行进一步分析，提取其指令特征，如指令序列、数据依赖关系、内存访问模式等。这有助于更深入地了解热点的性能特性。</p><p>（6）优化或分析：根据热点检测的结果，可以选择优化热点代码段以提高程序性能，也可以进行更深入的分析以解决性能问题或改进程序。</p><p>（7）重复性能测试：在进行优化或分析后，通常需要对程序进行重复性能测试以验证改进是否产生了预期的效果。</p><p>5.<strong>代码执行时编译器的作用如下：</strong></p><p>（1）词法分析：编译器通过将源代码分解成单词和标识符等，这个过程中编译器会识别代码中的每个元素，并进行标识。</p><p>（2）语法分析：编译器接着分析源代码的语法结构，构建抽象语法树（Abstract Syntax Tree，AST），以确定代码的结构和逻辑。</p><p>（3）语义分析：编译器进行语义分析以检查代码是否符合编程语言的语义规则。它会检查类型匹配、变量的范围、函数的参数和返回值等方面的问题。</p><p>（4）优化：在生成目标代码之前，编译器通常会执行一系列优化步骤，以提高程序的性能和效率。这包括常量折叠、死代码消除、循环展开、内联函数等。优化可以根据目标硬件架构和编译器设置进行自定义，以最大程度地提高执行速度。</p><p>（5）代码生成：编译器会生成目标代码，这是可以在特定计算机架构上运行的机器代码。这个机器代码包括汇编指令，负责执行相应的操作。</p><p>（6）链接：在需要时，编译器还可以处理链接步骤，将不同源文件中的代码合并成一个可执行程序，解决符号引用和库依赖等问题。</p><ol start="6"><li><strong>DBI工具的原理：</strong></li></ol><p>插桩（Instrumentation）：DBI工具会在二进制程序的指令中插入附加代码，用于捕获或修改程序的行为。这些插桩可以用于收集性能数据、跟踪程序执行、监视内存访问等。</p><p>动态分析：一旦程序运行，DBI工具会在执行时拦截和检查指令，执行插桩代码，然后将控制返回给原始程序。这使得工具可以在程序执行时收集信息、进行分析或修改程序行为。</p><p>反馈和控制：DBI工具可以提供反馈，如执行时间、内存访问、指令计数等，以帮助分析程序的性能和行为。它还可以通过插桩代码来控制程序的执行，如修改寄存器值、跳转到其他代码块等。</p><h3 id="研究背景"><a href="#研究背景" class="headerlink" title="研究背景"></a>研究背景</h3><p><img src="https://raw.githubusercontent.com/Gmorning730/BlogImage/main/img/20231010193228.png" alt="研究背景"></p><h3 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h3><p><img src="https://raw.githubusercontent.com/Gmorning730/BlogImage/main/img/20231010193404.png"></p><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p><img src="https://raw.githubusercontent.com/Gmorning730/BlogImage/main/img/20231010193656.png"></p><h3 id="设计与实现"><a href="#设计与实现" class="headerlink" title="设计与实现"></a>设计与实现</h3><h3 id="评价"><a href="#评价" class="headerlink" title="评价"></a>评价</h3><h3 id="思考与讨论"><a href="#思考与讨论" class="headerlink" title="思考与讨论"></a>思考与讨论</h3>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 论文研读 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>回忆皆回味</title>
+      <link href="/2023/09/06/%E5%9B%9E%E5%BF%86%E7%9A%86%E5%9B%9E%E5%91%B3/"/>
+      <url>/2023/09/06/%E5%9B%9E%E5%BF%86%E7%9A%86%E5%9B%9E%E5%91%B3/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>麻麻花的春天</title>
+      <link href="/2023/09/06/%E9%BA%BB%E9%BA%BB%E8%8A%B1%E7%9A%84%E6%98%A5%E5%A4%A9/"/>
+      <url>/2023/09/06/%E9%BA%BB%E9%BA%BB%E8%8A%B1%E7%9A%84%E6%98%A5%E5%A4%A9/</url>
+      
+        <content type="html"><![CDATA[<p>我出生于山西的一个小村庄。</p><p>小的时候，最喜欢和爷爷在繁华似锦的季节，带着小篮子，去采一种叫做“麻麻花”的植物。那种花很小，但很香，那种沁人心脾的感觉，就好像整个人置身于花海之中游趟。这种花开的很小，开的很少，采的时候也很有讲究。要采那种含苞待放的花骨朵，在它的香气没有蔓延出来时，保存起来。待到做饭时，捏一两朵，趁着油刚热和葱花一起在锅里翻涌。这样炒出来的面有着春天的味道。每当这个时节，那便是我最开心的时候，我们会给自己留下一点，剩下的全部，拿到市场上去卖。城里人很看好这种花，因为很罕见，所以我们都能卖个大价钱。</p><div  style="text-align: center; width: auto;">    <img src='https://raw.githubusercontent.com/Gmorning730/BlogImage/main/img/我和爷爷.png' height='400px' style='border: solid #c3c3c2;border-radius: 6px;margin: 0 auto'>    <h4 style='text-align: center;color: #403f3d;font-family:kaiti'>图1 我和爷爷</h4></div><p>这份动力，便是支撑着我，在柳絮纷飞的季节邂逅春天。每当我们采累了的时候，都会在那高高的山上，望向那一座座的城，那一幢幢的高楼大厦，是我记忆中最大的风景。我爱这山，爱她庇护着我们一代代的人，爱她在春天时开着漫山遍野的野花，爱她在夏天时山脚处的幽凉，爱她在秋天时捧着满眼金黄的稻穗，爱她在冬天时裹着皑皑的白雪。但我又讨厌她，她拉开了了我们与城市的距离。</p><p>这个时候的爷爷总会对我说，人要望的远，不能活在当下。就像这一座座的山，你只有在高处才能看到山外的风景，安逸现在那不叫生活，那叫生存。“要走出去。每当爷爷语重心长的和我说这些听了三番五次的话，我总会假装专心致志地托着腮帮子子，心思却早想着今晚我的面条里的漂着多少麻麻花。但那爷爷的最后一句话，每当我听到时，我的心里就莫名一颤，心里默念着：要走出去。</p><div  style="text-align: center; width: auto;">    <img src='https://raw.githubusercontent.com/Gmorning730/BlogImage/main/img/故乡的山坡.png' height='400px' style='border: solid #c3c3c2;border-radius: 6px;margin: 0 auto'>    <h4 style='text-align: center;color: #403f3d;font-family:kaiti'>图2 故乡的山坡</h4></div><p>但是要真正走出去，又谈何容易。那束缚这我留在这里的，除了对这片土地的热爱，更多的是那环环相扣的山。山里的条件不允许，家里也是。<br>那时的我，还处在无忧无虑的季节。每天想着的不是晚饭吃什么，就是下午放学刚好赶上的动画片演到了哪里。在那个贪玩的年纪，我想过要走出去，但也局限于想过而已。我以为外面的世界不过就是大了一点的土地，多了些高楼大厦，多了些霓虹烟火。我终究没有想过我该如何，走出去。</p><p>日子就这么安安稳稳的过着，直到某一天，当我回到家中，我的奶奶兴奋的和我说，你的助学金审批下来了。那一刻，我在那足足愣了一分钟。回过神来，我惊讶的问这奶奶，哪来的呀？奶奶，一边和着面，一边用手背擦拭着脸颊。“这次呀，可多亏你爸爸呢，他总算干了一件好事。”我伫立良久，那一刻是什么感觉，我说不出来，就好像是身处在黑暗中摸索前行，当我快要放弃我的眼睛时那缕久违的光打在了我的身上。那一刻，我更加坚定了我的信念：要走出去。在这之后，我便认认真真地给资助我的那位先生写了一封信。我在那里绞尽脑汁地琢磨着。我就这样写着，写着，仿佛看到了城市里闪烁不息的霓虹，川流不息的车道，鳞次栉比的建筑。我似乎嗅到了城市的气息，那是我曾梦寐以求的生活。想到这些，我不禁噗嗤笑出了声。回头望向奶奶，那时的我，还以为奶奶用手背擦拭着的，是额头的汗水。</p><div  style="text-align: center; width: auto;">    <img src='https://raw.githubusercontent.com/Gmorning730/BlogImage/main/img/我的奶奶.png' height='400px' style='border: solid #c3c3c2;border-radius: 6px;margin: 0 auto'>    <h4 style='text-align: center;color: #403f3d;font-family:kaiti'>图3 我的奶奶</h4></div><p>我看到了希望。</p><p>在那之后，我收到了两千元，两千元可能对一些人来说不算什么。但当时的两千元，是我一年的学费。那是我一年在外的母亲攒不来的，那是我疾病缠身的父亲挣不来的，那是我年迈的爷爷奶奶一个个瓶瓶罐罐存一年卖不来的。<br>但是它却是一个与我未曾谋面的人寄过来的。</p><p>在那之后，我才意识到，要走出去的唯一方法就是读书。我开始放弃了那开遍春天的芬芳，开始拒绝放学后小伙伴的盛情邀请，我一定不能辜负他，一定不能辜负她，一定不能辜负它。之后的每天，我都迎着晨曦散步，伴着月亮回家。那段时间是我过的最充实的一段时光。我开始拼命的学，因为我觉得，如果当时的我没有抓住这个唯一能出去的机会，我对不起他，更对不起自己。凭借着这样的信念，我全力以赴地追赶着明天的朝阳。</p><p>一年之后，我如期考上了我们市最好的中学。那是我第一次到城市里生活。虽然我们的学校并不在城市最繁华的地方，但每当我晚上去食堂，途径学校的大门，听着门外喧闹的车鸣笛的声音，是有多么满足。人们总是向往乡村的宁静与恬淡，殊不知，还有一些人是多么渴望城市的喧嚣与繁华。</p><div  style="text-align: center; width: auto;">    <img src='https://raw.githubusercontent.com/Gmorning730/BlogImage/main/img/车窗外的风景.png' height='400px' style='border: solid #c3c3c2;border-radius: 6px;margin: 0 auto'>    <h4 style='text-align: center;color: #403f3d;font-family:kaiti'>图4 车窗外的风景</h4></div><p>带着期盼与憧憬，我开始了我的初中生活，在那里，我遇到更加优秀的人，在那个高手亦云的环境中，我不断的去逼自己去不断超越。“不逼自己一把，就不知道自己有多么优秀。”这是写在食堂门口的标语，也是我最喜欢的一句。并且我通过实践验证了这个道理。每当我坚持不下来时，我就会想起在那个风和日丽的下午，那份久违的光，那份邂逅的温暖，我便有了坚持的动力。</p><p>在那之后，我便没有时间再去看那春天的花朵。但我的爷爷却年复一年的在那个春光烂漫的季节，在漫山遍野的杂草中寻觅着顶繁星点点的花朵。只不过这一次，我们不会拿去卖。爷爷把所有的麻麻花，都留给了回家后的我。<br>时间就这么匆匆的过着，一晃初中三年便以度过。三年之后的我就像三年前那样，带着更大的目标和野心，望向更远的风景。我如愿以偿的考上了省重点中学，那也是我第一次居住在忻州。不同于我中学所在的城市，这里繁华但不喧燥，热闹但也安详。</p><p>仿佛就像是乡村和城市的结合。</p><p>每当我坐上回家的火车，望着车窗外飞驰而过的风景，那一刻，我的心有种说不出的安逸和满足。那一刻，我总会想到那个未曾谋面的陌生人——那个人给我带去了光，让我看到了走出去的希望。高中三年，我一直接受学校助学金的帮助，这份感激我只能用更努力的学习去回报。每次去学校之前，我都会口袋里带一束细碎的麻麻花。在爱与恨交织的三年，每当我踌躇莫展时，我都会悄悄地拿出小心保存着的麻麻花。即便它由于失去水分而变得憔悴不堪，但当我凑近鼻子时，那股熟悉的芬芳告诉我：香气在，希望就在。</p><div  style="text-align: center; width: auto;">    <img src='https://raw.githubusercontent.com/Gmorning730/BlogImage/main/img/故乡的狗尾草.png' height='400px' style='border: solid #c3c3c2;border-radius: 6px;margin: 0 auto'>    <h4 style='text-align: center;color: #403f3d;font-family:kaiti'>图5 故乡的狗尾草</h4></div><p>我们每个人都没有办法改变自己出生的环境，有些人降世于光明，有些人出生于黑暗，但那缕不经意的光打到身上时，才发觉这世界原来如此温暖。我们一生总会遇到需要感恩的人，对我来说，我最感激那个在我迷茫时照亮前途的那缕光。因为一直被这个世界温暖着，所以我也会用我自己的方式去回馈这个世界：我会主动去接在我手边的传单，我会在离开图书馆时把凳子摆好，我会给守在垃圾桶边的老人拆开的快递盒子。因为在我发传单时，有人会笑着走来接过；因为在我打工时，有人会在离开时主动摆好附近的凳子；因为在我们村子里，有人会把没用的瓶瓶罐罐存多了一起给我的爷爷奶奶。可能人们不知道，他们不经意间的一个善举有多亲切，他们会心的一个笑容有多温暖。</p><p>在我来桂林读书之前，我特意带了一小束麻麻花。这一次，我真正的走了出来，而且走的很远。我有时会想，我就像这麻麻花一样，隐藏在密密的杂草之中。因为不被看见，所以对目光有多渴望。但却在某一天的下午，被人从杂草之中采了出来。那一刻，我才发现：原来身边不只有绿色，原来这个世界是那么的五彩斑斓。</p><p>又到了山花烂漫的季节，我闭上眼，仿佛置身于花海之中。这个陪伴了我整个青春的花朵，永久的绽放在我的记忆之中。</p><div  style="text-align: center; width: auto;">    <img src='https://raw.githubusercontent.com/Gmorning730/BlogImage/main/img/回家的小路.png' height='400px' style='border: solid #c3c3c2;border-radius: 6px;margin: 0 auto'>    <h4 style='text-align: center;color: #403f3d;font-family:kaiti'>图6 回家的小路</h4></div>夙宇写于家中 辛丑年八月八日 <head>    <style type="text/css">        p {text-indent: 2em}    </style></head>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 日记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>黎明破晓之日</title>
+      <link href="/2023/09/06/%E9%BB%8E%E6%98%8E%E7%A0%B4%E6%99%93%E4%B9%8B%E6%97%A5/"/>
+      <url>/2023/09/06/%E9%BB%8E%E6%98%8E%E7%A0%B4%E6%99%93%E4%B9%8B%E6%97%A5/</url>
+      
+        <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="好像....不是这把" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">  <script id="hbeData" type="hbeData" data-hmacdigest="7c318a22e852a4b85bc2a534c5a4f6458df8b1a1654c7d338f576b1f897600d6">aad056d760d37af61e9208b0dbddcb0c9f1229a9ba1d5b41c2e259f52ac88e70fa88cd9e53a60d503cc46b27935912415cb431024d9540b40095035765221f6867b66da4b4c5436c8b977c60e63941aa8af1054935bde86c7f1a4831751de5cf0bfb563486a06e83bfe7ea21be39d5d2c7ef58a6570c438ddc4d7853b2ad83b1b50747cbaeeaa6c0e84f67b2a5fadf4df99bfcbba09148c08d2785405ce80fc050f13a5331aade39894d42422667a12e86ad88569801eb6a6f008aa344286725ed902aa796a096c7e64d3a26f8bcd39e5f60523d9c67d7522466c18fee30ae625145514bd314a16c764fc3773dcb5637bd141c8cc1b5c0363395c8cf561435d399cf5faf97da195721d14a4de950e200fcc0ae0c38684f1522f000f97d94850d4cdaf25583adeedaf4c14f3c4e2193c629930e904f7c304fd0aa2749c0a96a612eb6d32b41dfb8a7097840b2f5932627e29cb051677bc8d1097e301b86c7aaa04dfecba19714fd2dc9761f1514d50c92ecb80c746f2447cc21af439781d39ca99aa63c1f24e3ccd9c18bc6860fd26fbe65e102c6a52d1ad91a8a4c8bd40904a748424253c6114037c684a487f843e38f753d13d064795b1a70644ed810c576830cdb20d5e02203c23e1a4ac4ce30047c1a32abba33ca0a308a066897fda7709fedf661c00f72ec752cd9b5d1a0d4a0d6828f33397a89d78b5237fa6df11189a8bde515aaa42434afa4e4aa6877db8d9eb9e0454c17262d98c665a8cfd7bfcf5dc71d01c3e0510f2f23e393092b6ecd147f9242ddf747aab3f59fdb94c8d978fa7c84b5cf2ebe19a9976bfb9d054a8c5788ff483cac7ec39f1e186eb4b72981763ad428113d00f4c135c82eead6c7a04cd646467939103c998f9da154273a33e4ab3e8f2f365656bad8180d0e970d80be73cff817e16719f98af41fa5f601b369bf3517797b1d4cc0b34389ddd01cff15530c7fde827e3081c602b5c9846638ca48883033d64e2ec71d10c0a7e4bddfa1a78c7036f29dca320e3b81d0a603b26124ab4741e6cefa02ecdaae2ff707c82d1e9099335941f492104f9b02e89542a62293d781debac21a618a16c5a01b7f7768b1c4cf3f6665062be8bb0cf0ab853d006d211c5464b748034db554a4ab8037</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-xray">      <input class="hbe hbe-input-field hbe-input-field-xray" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-xray" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-xray">你需要有叩开我心门的钥匙</span>      </label>      <svg class="hbe hbe-graphic hbe-graphic-xray" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">        <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>        <path d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0"></path>      </svg>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 日记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>海康威视校园招聘--第一弹（人工智能）</title>
+      <link href="/2023/09/01/%E6%B5%B7%E5%BA%B7%E5%A8%81%E8%A7%86%E6%A0%A1%E5%9B%AD%E6%8B%9B%E8%81%98-%E7%AC%AC%E4%B8%80%E5%BC%B9%EF%BC%88%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%EF%BC%89/"/>
+      <url>/2023/09/01/%E6%B5%B7%E5%BA%B7%E5%A8%81%E8%A7%86%E6%A0%A1%E5%9B%AD%E6%8B%9B%E8%81%98-%E7%AC%AC%E4%B8%80%E5%BC%B9%EF%BC%88%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<p>【🌟海康威视2024届全球校园招聘正式启动】</p><p>🎯【多元岗位，给你更多选择】<br>10大岗位类别，全球工作地点，网申通道现开启。</p><p>🉐 【加入海康威视，你可以获得】<br>🚀  影响世界的宽广舞台<br>✨  持续可期的成长回报<br>💪  踏实专注的做事氛围<br>💡  接轨市场的创新实践</p><p>📮 【简历投递方式】<br>➡  PC端校招官网(建议)：campushr.hikvision.com<br>▶  微信端：关注“海康威视招聘”公众号，投递微简历<br>内推码：54A73I<br>推荐岗位：<br>算法&#x2F;网络安全&#x2F;大数据类：AI加速算法工程师、仪表算法工程师、无损检测算法工程师、安全研究员 等<br>器件电路类：电路设计工程师、系统全栈开发工程师、光电传感器开发工程师、封装设计工程师、X-Ray探测器开发工程师 等</p><p>加入海康威视，智能物联新未来，因你来！</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 招聘 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>南乡教会我们的</title>
+      <link href="/2023/08/31/%E5%8D%97%E4%B9%A1%E6%95%99%E4%BC%9A%E6%88%91%E4%BB%AC%E7%9A%84/"/>
+      <url>/2023/08/31/%E5%8D%97%E4%B9%A1%E6%95%99%E4%BC%9A%E6%88%91%E4%BB%AC%E7%9A%84/</url>
+      
+        <content type="html"><![CDATA[<p>这个夏天又是充满活力与热爱的一个季节。虽然只有十天，但这十天将会是我终身难忘的经历。忘不了高铁沿途每一帧如诗如画的风景；忘不了那些可爱机敏的孩子眼中的闪烁光芒；忘不了每天去抢28路和5路炙热的下午；忘不了南乡滚烫的泉水和温良的村民；忘不了每天结束后沿街寻找饭店的狼狈；忘不了每天晚上簇拥着棋牌和电影的温馨；忘不了每一张合照发自肺腑的笑容；忘不了每一次相约结伴前行的坚定。在贺州的每一天让我记忆犹新。<br>​<br>​这次相遇让我认识了一群勇敢活泼的小伙伴，每个人都是那么特别和珍贵，很幸运能和你们一同度过这十天，你们身上宝贵的品质教会我更加坚强和勇敢。谢谢你们！</p><p>我们目前的教育因地域和经济因素还是会存在差异，我们希望这次活动能够给他们带去继续求学的希望和动力。这个世界很大，山外的天更加的清澈和浩瀚。勇敢的迈出步伐，坚定的向前，剩下的，都交给时间。</p><p>我们都沐浴在暖阳下前行着，希望我们都可以——成为带着光的人。<br>​</p><h3 id="改编歌词"><a href="#改编歌词" class="headerlink" title="改编歌词"></a>改编歌词</h3><p>这一次 就安静地来看过<br>一群人<br>乘着车 窗外的<br>风景忐忑<br>我们 踏步南乡的旅程<br>湛蓝色的天空<br>弥漫 在滚烫 的温泉中</p><p>昨天坎坷与失落<br>如今翻天覆地改革<br>在意着的人 从来没缺席过</p><p>微笑吧 相信吧<br>党徽闪烁的红色<br>坚定地去奔向<br>未来美好的生活</p><p>经历了 见证了<br>扶贫骄傲的成果<br>崭新的每一天<br>闪耀吧在中国</p><p>品尝了 南乡的鸡豚特产<br>很纯真<br>游览了 沿途的<br>壮丽的山河</p><p>那舞火的非遗啊<br>像是捧着的手<br>把粮 和日子 都守护着</p><p>就算渺小的你我<br>修正不了历史长河<br>共同筑的梦 都将会实现了</p><p>微笑吧 相信吧<br>党徽闪烁的红色<br>坚定地去奔向<br>未来美好的生活</p><p>经历了 见证了<br>扶贫骄傲的成果<br>崭新的每一天<br>闪耀吧在中国</p><p>曾经的 身边的<br>陪你贫和富的人<br>感恩着去拥抱<br>共同呼吸的温热</p><p>坚定的 渴望的<br>执着追逐和颂歌<br>热爱的 骄傲的<br>是祖国教会我的</p><p>美好的 挥别的这段记忆<br>是南乡教会我的</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 创作 音乐 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 歌词改编 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>爷爷的狗（二）</title>
+      <link href="/2023/08/07/%E7%88%B7%E7%88%B7%E7%9A%84%E7%8B%97%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
+      <url>/2023/08/07/%E7%88%B7%E7%88%B7%E7%9A%84%E7%8B%97%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<p>​说到狗，其实那条肠胃不好的，并不是爷爷的第一条，在他之前便已经有六条了。他们之中有病死的，有被偷的，有出车祸的，有养了一半送人的，还有偷跑出去走丢了的——这狗多半是个路痴，但也不能怪狗，毕竟他们能够外出的时间仅仅是他们一生中的多少分之一，多少分之一呢？也说不上来了。</p><p>​若是说那不同寻常离世的狗是因为走了霉运，不提就不提了。但那卖掉的狗就不得不说一下，因为他们本可以安度晚年的。那是一只最凶狠的狗，我甚至曾经怀疑过它是不是吃狗奶长大的狼，同样它也是唯一参与了我童年，留下过痕迹的那一条——包括在我的手指上。</p><p>​至于它的由来，我也记得不太真切了，但仿佛是爷爷从他的一个朋友那里要来的——爷爷的朋友很多，这总能为他在某些场合博取一些资源——尤其是那些猫猫狗狗的那些事儿上。就这样，那条又瘦又小的它，就进入到我们生活，和我一同成长。</p><p>​渐渐的，它越长越大，也越长越凶猛。它的狗窝是安排在茅厕附近的，这会带来一个麻烦事：人们都不敢去上厕所。于是亲人们回来的时候都会叫我给给他们看着狗，我也没有什么好的方法，便那一张铁锹轻轻的抵在它的嘴巴旁边，它便乖乖的了。一旦走开，它便像一匹饿狼一样咆哮着，不停的啃食嘴边的木头。时间久了，木头开始泛黄，但一旦有人来串门，它便开始磨砺着新的颜色。</p><p>​人们都说：你家养了一口狼。</p><p>​是啊，我家确实有一匹狼。</p><p>​关于它的故事，并没有特别精彩的部分，但在那个时候发生的事情，我却记得尤为真切：那段时间家里刚刚安了机顶盒——这是这个小小的盒子，但里面却藏着不计其数的节目：神厨小福贵，虹猫蓝兔奇侠传，喜羊羊与灰太狼，大耳朵图图，数码宝贝……那些节目可不是仅一个山西卫视可以包揽的。再者说，家乡的电视台无时无刻播放着不是《西游记》就是《大戏台》——这在那个时候充满童真的眼里，可不是件好事。</p><p>​唯一叫好的，就是爱看戏曲的爷爷奶奶。我会把所有的动画节目频道调在最前面，那样会占据了CCTV相关频道的位置——这种技能在家里可是只有我会，我会得意的只拨动上下两个频道键就可以博览所有的动画节目，以便在一档节目插入广告时迅速跳转。但爷爷奶奶就不一样了，遇到好看的频道，他们刻意的记忆该频道的位置，常常奶奶会问我：“亲（qìn），咱们叶 [yè：昨天的意思] 儿黑夜看的那个电视是在几台了? ” （亲，可不是淘宝体专有的词，在我们这里长辈对晚辈的爱称就是这样叫的）这个时候我便会故作烦躁的拖着下巴，“奶奶你看，你按一个五，按一个七，这样一下子就跳转到那个台了。” 这个时候奶奶便会戴着老花镜，颦起眉头，摸索着五和七的位置。找到之后便会按照我说的去按一次。</p><p>​若是找到了，奶奶便会来一句：“看俺娃精明的”；若是没找到，便会再来问我：“这咋了不是昨天演的那个电视”。这个时候我一般会回一句：“奶奶你等一下么，它慢慢就演的接住了。” 之后，奶奶便会若有若无的“嗷”一声。等到我手中的漫画看完之后，悠然抬起头看着电视传来一句：“你这个大骗子！” 定睛一看，电视里全然放映着另外一个频道——原来奶奶按的时候太慢，在跳转之前还没有摁另一个键，结果就跳转到五频道了。大多时候是这样，但也不排除某些时候我“ 喜提新道 ”，又重新调整了频道的顺序。若是后者我便会暗暗将那个错误的顺序调整到兼顾的状态，顺序是解决了，但句 “你这个大骗子！” 仿佛一直在责怪我没有及时抬头。那个时代，一个频道，一把瓜子，头顶上忽明忽暗的灯光，电视里忽大忽小的声音，便是饭后最大的快乐。</p><p>​要说因为看电视产生的矛盾，那也是有的，只不过常常发生在我和爷爷身上。爷爷钟爱他的新闻，我偏爱我的动画。早上七点钟是每天新闻诞生的最早时刻，但那也是《马丁的早晨》更新的最早时刻。爷爷说，新闻看重播就没意思了，那样就不新了；我说，马丁的早晨就是要早晨看的，中午那就成马丁的中午了。似乎都有道理，双方都不肯让步，但是论讲道理，比力气，我可都比不过爷爷。反正过程记不清了，但最后的结果就是我梨花带雨地跑到了院子里。那狗不知所措的看着我，我一边啜泣，一边拿着盛放狗食的大勺子——那是爷爷那一辈人用的剩下来的，一边拿勺子凿着地，一边小嘴诅咒着停电。啪！清脆的一声，勺子断了，电也停了。</p><p>​我愣愣的拿着剩下的半个狗勺子，茫然不知所措。看不成新闻的爷爷踱步走出家门，看到院子里犯罪现场，再加上看不成新闻的恼怒，气冲冲的跑过来：“巴你个灰鬼！”一双粗糙有力的大手打在我的后脑勺上面。这下水龙头关不住了，哇的一声便排山倒海地哭了。这时狗仿佛在为我出头，汪汪的不停叫着。似乎觉察到异常，奶奶应声而来，看到哭的不成样子的我，奶奶嗖的一下冲过来抱着，狠狠地瞪着爷爷：“牲口！” 再后面发生地事情便浑然记不清了，但从那以后，我对我家的狗便格外友好，常常会故意剩下一大块肉，咬一大口便不吃的烧饼，藏在汤里面的小排骨…..但后来我发现这些东西并不能到狗狗的嘴里，在那之后我便私下给狗狗改善伙食了。后来我提起那件事，奶奶便会笑着说：“你看你爷那个时候灰了 [在我们这里，灰是坏的意思] 。” 但是爷爷便会惊讶道：“啊？啥时候的事，我还打过小娃了？没了 ” 说罢，便戴着帽子便迅速离开了。</p><p>​我不曾记着它的到来，但是它离开的时候我却格外的清晰。至于原因，那便是我从小落下的湿疹——大夫说，除了牛肉龙虾，辣椒韭菜，狗毛也是重要过敏原，尚且狗身上的跳蚤也是你长期瘙痒的重要原因。或许是被那疾病折磨了罢，或许在不想忍受中药那苦涩的味道。家里人一商量，就决定把狗买了。爷爷起初不愿意，再三思索以后，最终也同意了罢。它离开的那一天，我还在上学，回到家之后，它便永远的离开了。它甚至都未曾拥有过自己的名字，未曾拥有过自己的爱情，从我四岁那年来到家中，直到我十二岁的那一天离开。因为过于凶猛，它能够外出的时间少之又少，它的一生被囚禁在这个小小的院子里，忠诚又负责，但最后的结果是——我们把它给买了。</p><p>​后来发生的事，说来也有些荒谬可笑。我的病是随着年龄的增长慢慢退去的；第二年爷爷又凭借他的人脉搞来一条狗；奶奶还是兢兢业业的喂着。只不过那时的我去了县里面的高中，爷爷也不在热衷于新闻，奶奶也不在去记那些频道了。她总是看一会儿便换一个台，看一会儿再换一个，再看一会儿，就关了。</p><p>​村里的狗大多都是一个命运，从出生到老去，他们无不在那个小小的院子里。当然在他们之中也有英年早逝的，也有不幸离世的，真正能够寿终正寝的少之又少。它们从不挑食，主人剩什么，他们就吃什么；他们恪尽职守，谁进来它们就咬谁；他们也从不在乎明天是什么样子，每当夜深人静的时候，它们也只是浅浅的睡着，一有动静便会冲着天空长啸。黎明破晓，它们便知道：第二天要来了。那便又会是日复一日重复着相同的事。枯燥却执着，苦涩却英勇。</p><p>​那便是它的日子，那也是它的生活。</p><div  style="text-align: center; width: auto;">    <img src='https://raw.githubusercontent.com/Gmorning730/BlogImage/main/img/爷爷的狗2.png' height='400px' style='border: solid #c3c3c2;border-radius: 6px;margin: 15px auto'>    <h4 style='text-align: center;color: #403f3d;font-family:kaiti'>图1 爷爷的狗子们</h4></div><head><style type="text/css">p {text-indent: 2em}</style></head>]]></content>
+      
+      
+      <categories>
+          
+          <category> 日记随笔 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 我们这一家 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>爷爷的狗（一）</title>
+      <link href="/2023/08/07/%E7%88%B7%E7%88%B7%E7%9A%84%E7%8B%97%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+      <url>/2023/08/07/%E7%88%B7%E7%88%B7%E7%9A%84%E7%8B%97%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<p>提笔之前，我想了很久，标题的第三个字，是用“和”好，还是“的”好。若是用“的”，倒是能说明狗和有爷爷的关系——但又显得狗仅仅是爷爷的附属品。事实是这样的吗？我不能否认，但似乎更为密切；若是用“和”，又觉得，这样的话仿佛这狗和爷爷仿佛有着动人的故事似的。其实不然，说是动人的故事，倒不如说是爷爷的养狗日志，只是一些平淡的不能再平淡的生活，但至少狗的出现能让爷爷不那么孤独。只不过，这日志是我帮爷爷的。</p><p>所以，姑且我就以“爷爷的狗”为题进行吧！</p><h3 id="我的爷爷"><a href="#我的爷爷" class="headerlink" title="我的爷爷"></a>我的爷爷</h3><p>提到狗就不能不介绍我的爷爷。这个时候你可能会笑了：明明说好说的是狗的，怎么又说起爷爷来了？虽说狗是爷爷的，但光说狗的故事也说不出一个所以然。村子里的狗，大抵都是一个样：脖子被铁链牢牢的锁在栓子上，整个身子半淹在泥土中，灰蒙蒙的。好比是那挡住太阳的乌云似的，飘过去，便飘过去了。但那狗的日子可不一样——多半都是阴的。</p><p>要说那风和日丽的时候倒是也有，便是那开饭的时候，平日耷拉着的耳朵一下子就有了精神，那便是他们唯一的晴天，但他们毫不在乎晴天能有多长，太阳能有多大。他们只管低头吞食着口中的食物，不时的撇着眼看看，主人的手中是否还有些残羹剩饭。这个时候奶奶总会不时的来一句：“吃的跟个小猪似的”。他们从来不在乎吃的有多香：管饱便是。但似乎这个愿望也不能满足，我常常问奶奶，为什么不多喂它一点？奶奶便叹着气答道：“它的胃不好，吃不了多”。这时我也叹着气，看看它渴望的眼神，看看身边叹气的奶奶，看看自己起起伏伏的脚，低着头说一句：“哦，狗老了”。</p><p>爷爷是爱狗的，或许跟他的属相有关。爷爷是属狗的，奶奶不是，但那狗却仿佛是属于奶奶的。一天的进食、排泄都会是奶奶的营生儿。时间长了，便也会不耐烦：“人都快饿死了还养活这狗东西 ”。但奶奶也只是这样说说罢了，人是够吃的，狗或许也是——那得看人剩多少。因此每当有剩饭的时候，狗是最开心的，但奶奶又或许是最烦闷的那一个：“又剩下这么多！” 就这样年年岁岁的，狗也一直喂着。除去奶奶和狗在一起的时间，剩下的，就都属于爷爷的了。某些时候我觉得爷爷和狗之间好像有一条无形的纽带似的，拴着狗，也拴着爷爷。</p><p>这个时候你可能又笑了，你说的这不是狗链子么，要说是狗链子吧，但那是多余的。夏天的时候，爷爷的狗总会在晚上陪着爷爷去村子里面行[ 寻 ]蝎子。那狗解开的时候活蹦乱跳的，在院子里到处撒欢，爷爷一往出走，他便跟着去了。在晚上，那狗便是爷爷的眼睛，狗的眼睛可比人敏锐多了。狗一路上走走嗅嗅得，它走过的地方，便是安全的。当然他也会乱跑，若是跑到爷爷看不见了，这时爷爷便会大声地吆喝一声，他也会跟着大声地汪一声，便立马回爷爷的身边。这样的活动一晚上会有好几次，但爷爷从不嫌着，至少那空谷里的回音可以让他不在那么孤独。</p><div  style="text-align: center; width: auto;">    <img src='https://raw.githubusercontent.com/Gmorning730/BlogImage/main/img/黑狗狗.jpg' height='300px' style='border: solid #c3c3c2;border-radius: 6px;margin: 0 auto'>    <h4 style='text-align: center;color: #403f3d;font-family:kaiti'>图1 小黑狗</h4></div><p>回来之后，那狗便继续被拴着了。若是平日，那狗指不定会折腾几下，但毕竟奔波了一晚上，狗也累了，爷爷也是。等到第二日，它便会又像往常一样眺望着烟囱里冒出来的滚滚炊烟，他便知道：晴天快来了。</p><p>吃完饭的爷爷，便会带着昨天晚上行的蝎子到街上去。蝎子是放在瓶子里面的——那是喝剩下的一个可乐瓶，拿剪刀剪下它的脑袋，上下一颠倒，沿着瓶口的方向塞进它的肚子里，用铁丝这么一别[ biē ]，蝎子筒就做好了。爷爷会把蝎子筒拿一根绳子挂在脖子上——我总害怕有能力的蝎子沿着绳子爬到爷爷的脖子上，这个时候爷爷总会说到：“不怕，蝎子没（了）长翅膀的 ”。再说那街上，这个时候街上总会站着许许多多的人，人们不会着急着卖。在此之前他们会相互炫耀自己昨天的成果：有三两的，五两的，更有甚者一斤的。这个时候人们便赞叹：“XX家的老汗行了一斤蝎！” 这是拿家乡话说的，翻译过来便是：XX家的老公寻了一斤蝎子。此时高兴的，便是这家的女主人，因为他有一个家喻户晓的能干老公——更开心的是：那一斤蝎子可是个不菲的价钱。除了卖蝎子的，还有各式各样的表演：徒手抓蝎子的，生吞蝎子的，斗蝎子的——说起争夺配偶打架来，鸡也干过这件事儿。人们总能在收蝎子到来之前找一番乐子。</p><div  style="text-align: center; width: auto;">    <img src='https://raw.githubusercontent.com/Gmorning730/BlogImage/main/img/寻蝎子工具.jpg' height='400px' style='border: solid #c3c3c2;border-radius: 6px;margin: 0 auto'>    <h4 style='text-align: center;color: #403f3d;font-family:kaiti'>图2 寻蝎子工具</h4></div><p>剩下的，便是看门这回事了。这大概是村子里的狗都必须要干的一件事儿——每当邻里乡亲来串门的时候，它便蓄势待发着。他不会立马就叫，而是等到她快走到自己的跟前时，突然的一跃而起，开始凶狠的叫嚣着。听到狗的叫声，主人便出来了。看着吓坏了的客人，这时便若有若无的来一句：“进来吧，这狗，不咬人”。似乎吃惊了的客人有所缓解，似乎听到主人赞叹自己的英勇，那狗便悻悻的回自己的狗窝去了，它得养精蓄锐，方便下一次的出击。</p><head>    <style type="text/css">        p {text-indent: 2em}    </style></head>]]></content>
+      
+      
+      <categories>
+          
+          <category> 日记随笔 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 我们这一家 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>反思与总结</title>
+      <link href="/2023/07/14/%E5%8F%8D%E6%80%9D%E4%B8%8E%E6%80%BB%E7%BB%93/"/>
+      <url>/2023/07/14/%E5%8F%8D%E6%80%9D%E4%B8%8E%E6%80%BB%E7%BB%93/</url>
+      
+        <content type="html"><![CDATA[<p>（长舒一口气） 终于完成自己的个人博客建设了（欢呼*3）在这个过程中遇到了很多问题，也想过各式各样的方法，去找了各种各样的解决思路。网上的一些信息，有些是正确的，也有些是错误的。在博客搭建的过程中也遇到了很多坑，也走了一些弯路。但是最后看到自己的呈现效果时还是比较满意的，按照自己的想法，把所添加的元素都添加到了网站主页。接下来就从五个方面对自己的博客进行一个简单的介绍和总结。</p><h1 id="1-主题介绍"><a href="#1-主题介绍" class="headerlink" title="1.主题介绍 "></a>1.主题介绍 <i class="iconfont icon-mianxinghaidao-copy" style='font-size:25px;'></i></h1><h2 id="1-1博客名字"><a href="#1-1博客名字" class="headerlink" title="1.1博客名字"></a>1.1博客名字</h2><p>关于主题，博客的名字是我最喜欢的一个小岛的名字——克里特岛。它位于地中海东部的中间，是希腊的第一大岛，那里诞生了许许多多的神话故事,带着憧憬和向往，我将网站的名字设置成creteisland。</p><h2 id="1-2博客框架"><a href="#1-2博客框架" class="headerlink" title="1.2博客框架"></a>1.2博客框架</h2><p>博客搭建使用的框架是Hexo，它是一个快速、简洁且高效的博客框架，基于 Node.js 开发。Hexo 使用 Markdown 解析文章，并生成静态页面，非常便于静态部署和加载，无论从安装方式还是生成速度而言都有着很明显的优势。最重要的是简单啦~适合小白上手。</p><h2 id="1-3主题框架"><a href="#1-3主题框架" class="headerlink" title="1.3主题框架"></a>1.3主题框架</h2><p>主题我使用的是Butterfly，和他的名字一样，这个主题的本体就非常的好看~而且魔改相对简单，在搭建博客时一直在纠结到底选用是next主题还是butterfly主题。但是最后。看了一些。优秀的博客主，他们用的主题大部分是butterfly且butterfly。在美化方面有着较多的教程和经验，所以从我本人而言，自己也喜欢花里胡哨的东西（?）。所以选用的主题，最后决定的是butterfly。</p><h2 id="1-4内容介绍"><a href="#1-4内容介绍" class="headerlink" title="1.4内容介绍"></a>1.4内容介绍</h2><p>其实，我觉得博客不应该被定义，它并不是只能用来存放技术相关的文档。我觉得像一些日记生活日志、游戏影评、电影测评、等等，任何你感兴趣的东西都可以放在博客上面。相对于日记，它有更好的记录方式；相对于一些其他的博客平台，受制于平台的约束会较多。搭建一个属于自己的博客可以从头去感受搭建的过程，并且自定义自己博客的一些元素和内容，对我们开发能力和技术能力会有一定的提升。最重要的是，有了一个属于自己的博客，它会激励着你去更新、完善、迭代，使它变得更好~</p><h1 id="2页面布局"><a href="#2页面布局" class="headerlink" title="2页面布局 "></a>2页面布局 <i class="iconfont icon-ppt " style='font-size:25px;'></i></h1><h2 id="2-1布局介绍"><a href="#2-1布局介绍" class="headerlink" title="2.1布局介绍"></a>2.1布局介绍</h2><p>页面布局方面，我使用的是butterfly主题自带的一个布局，并在布局上面增加了自己相应的元素和模块。布局整体呈现一个大板块小元素的特点。首先映入眼帘的是一个较大的图片背景，搜索栏和导航栏在右上角，文章的主页在下方，右侧是导航栏等一些其他的模块。将不同的目录内容进行划分，可以更直观清晰地定位到我们在观看时所看的内容。对于每个分页面而言，会根据它不同的页面特色定义相应的布局。在时间轴的页面，它主要是一个枢轴去记录我们发布文章的日期；标签页它记录的是我们文章的标签类型，标签的大小会随着你文章的数量自动的调整。关于我的页面是设计的一个自我介绍里面，记录了一些我想让大家了解的内容。还有一些特殊的页面包括音乐视频评论日志等页面，虽然有些部分的页面还没有去完善，但是大部分的页面都已实现相应的功能。</p><h1 id="3功能实现"><a href="#3功能实现" class="headerlink" title="3功能实现 "></a>3功能实现 <i class="iconfont icon-icon-" style='font-size:25px;'></i></h1><h2 id="3-1博客页"><a href="#3-1博客页" class="headerlink" title="3.1博客页"></a>3.1博客页</h2><p>博客业，它的主要功能是记录博客内容以及博客的封面和题目，整体呈一个流式布局。当文章的数量超过一定的限制时会自动生成翻页的小图标。</p><h2 id="3-2音乐星球"><a href="#3-2音乐星球" class="headerlink" title="3.2音乐星球"></a>3.2音乐星球</h2><p>音乐页面会分享一些我个人喜欢的歌单这个页面主要是。通过Aplayer插件实现的，安装插件之后设置相应的歌单单号，以及音乐插件的类型就可以实现对歌单的展示以及设置自动播放会在点进页面之后进行自动播放。</p><h2 id="3-3电影放映厅"><a href="#3-3电影放映厅" class="headerlink" title="3.3电影放映厅"></a>3.3电影放映厅</h2><p>这个页面还在开发啦~目前还没有实现。届时我会调用一些相关的插件来实现电影放映的功能，比如说从B站或者豆瓣，去分享一些相关的电影和影评。</p><h2 id="3-4静谧森林"><a href="#3-4静谧森林" class="headerlink" title="3.4静谧森林"></a>3.4静谧森林</h2><p>这个页面的功能是留言和评论，之所以叫进缪森林，是因为我曾经给自己设想过，如果自己以后有能力开一家小书馆的话，的名字叫静谧森林。我希望这个留言页可以实现类似的功能，大家可以在这里分享一些平时的小故事，一些人生哲理，或者一些学习经验，在这里可以畅所欲言。</p><h2 id="3-5心情日记"><a href="#3-5心情日记" class="headerlink" title="3.5心情日记"></a>3.5心情日记</h2><p>这个页面也在开发啦~到时候我会以说说的形式记录我每天的一天生活。这样以日记的形式去记录，和大家分享我生活中遇到的一些开心和感动的事情。</p><h1 id="4美学考量"><a href="#4美学考量" class="headerlink" title="4美学考量 "></a>4美学考量 <i class="iconfont icon-shouye" style='font-size:25px;'></i></h1><h2 id="4-1背景选择"><a href="#4-1背景选择" class="headerlink" title="4.1背景选择"></a>4.1背景选择</h2><p>在背景选择方面，起初我选择的一张固定的克里特岛的风景照，但是在我浏览过程中，我发现有很多其他的照片也非常的美观，因此，于是我插入了一个javascript脚本通过随机生成索引来放置相应的索引图片，实现在不同刷新情况下会展示出不同的背景。背景照片是我精心去挑选的，他们在不同的情况下对文字不会有遮挡和高光，使人在白天或夜晚的情况下，都会处于一个较好的阅读状态。</p><h2 id="4-2配色方案"><a href="#4-2配色方案" class="headerlink" title="4.2配色方案"></a>4.2配色方案</h2><p>对于配色而言，我最喜欢的一个配色是莫兰迪色系。这个色系它是一个非常轻柔，非常和谐的一个色系。它的颜色过渡比较平缓，不会有特别冲击的色彩对比，给人一种舒服的感觉。我借助这种类似的方式，使我页面中的主题颜色尽可能的淡雅，给人一种服清新的感觉。</p><h2 id="4-3特殊样式"><a href="#4-3特殊样式" class="headerlink" title="4.3特殊样式"></a>4.3特殊样式</h2><p>在夜间和日间的切换模式我加入了动画切换，当点击相应的按钮，会出现太阳和月亮的动画过渡。其次，借鉴一些网络博客的样式，我给自己的页面设置了毛玻璃的效果，但是我认为配色最主要的一个目的是使页面变得好看，但前提是不能在影响别人的阅读情况下来进行实施。因此我针对相应的毛玻璃进行调整调节它们透明度以及发光边缘，使得在不影响读者阅读的情况下达到最佳美观效果。</p><h2 id="4-4live2d人物"><a href="#4-4live2d人物" class="headerlink" title="4.4live2d人物"></a>4.4live2d人物</h2><p>这个其实就是我们通常所说的看板娘，但是试过之后，我发现无论这些元素放在左边还是右边都会影响读者在观看过程中的体验，因此我调整它的位置处于页面的最右端，设置像素大小只有30px*30px。虽然大家不会立马去看到他，但是当你去阅读完文章之后想要去看一看最近的文章，或者回到顶部时候，你会发现右下角有一个可爱的小猫，就像一个宠物一样在那里去守护着你，我觉得这就是它实现的最大的作用，任何设置都不应该喧宾夺主，博客要不忘初心，他的最主要的目的是阅读和记录，我们要尽量使我们的页面美观大放的同时，是游客能够更加关注我们的文章内容。</p><h1 id="5问题汇总"><a href="#5问题汇总" class="headerlink" title="5问题汇总 "></a>5问题汇总 <i class="iconfont icon-wode-changjianwenti" style='font-size:25px;'></i></h1><p>这个要汇总的问题太多啦，在这里感谢我引用到的这些博客，他们为我最终网站的的建成提供了大力的帮助，这些博主的网页也是非常的美观哦~大家可以去观摩一下不同风格的博客设计。由于在博客的搭建和内容方面花费了较大的时间，因此。详细的问题我没有进行一个系统的梳理，我把我当时遇到的问题使用的解决方案都列在了这里。最后再次感谢这些优质的博客！</p><ul><li><a href="https://hexo.io/zh-cn/index.html">Hexo 快速、简洁且高效的博客框架</a></li><li><a href="https://butterfly.js.org/">Butterfly 安裝文檔(一) 快速開始</a></li><li><a href="http://theme-next.iissnan.com/">NexT 精于心，简于形</a></li><li><a href="https://cnhuazhu.gitee.io/2021/02/24/Hexo%E9%AD%94%E6%94%B9/Hexo%E9%A1%B5%E8%84%9A%E7%BE%8E%E5%8C%96/">页脚美化设置</a></li><li><a href="https://zhuanlan.zhihu.com/p/552639819">2022【保姆级教程】含泪搭建hexo博客</a></li><li><a href="https://www.fomal.cc/">Fomalhaut🥝</a></li><li><a href="https://android99.com/2021/08/10/butterfly-top-image-modify/">Butterfly主题 一图流背景与顶部图修改</a></li><li><a href="https://www.iconfont.cn/?spm=a313x.7781069.1998910419.d4d0a486a">iconfont</a></li><li><a href="https://imgse.com/">路过图床-高速稳定的图片上传和外链服务</a></li><li><a href="https://pixabay.com/zh/">精彩的免版税图片和免版税库存</a></li><li><a href="https://blog.csdn.net/qq_33384402/article/details/107200465">Hexo-butterfly评论系统配置: Gittalk</a></li><li><a href="https://blog.csdn.net/qq_38870718/article/details/122555421">Butterfly主题美化-页面毛玻璃效果</a></li><li><a href="https://blog.csdn.net/qq_41356250/article/details/128437819">Hexo + Butterfly 自定义页脚</a></li><li><a href="https://blog.meta-code.top/2022/06/18/2022-73/">【Hexo博客】自定义Butterfly主题 Loading 加载动画</a></li><li><a href="https://byjc.gitee.io/suiji.html">butterfly随机背景最简单的写法</a></li><li><a href="https://www.guodongblog.com/posts/91597d56b19f/">Hexo-Butterfly音乐播放器的添加</a></li><li><a href="https://blog.saop.cc/p/7a98/#%E8%B5%B7%E5%9B%A0">Butterfly主题公告栏插入a标签按钮</a></li><li><a href="https://blog.meta-code.top/2022/06/12/2022-68/">[Hexo博客]魔改美化Butterfly主题右键菜单</a></li><li><a href="https://wrm244.github.io/depression_demo/index.html">全球大数据分析平台</a></li><li><a href="http://www.motions.cat/top.html#0104">每日一猫</a></li><li><a href="https://bz.zzzmh.cn/index#classify">极简壁纸</a></li><li><a href="https://www.bilibili.com/video/BV1hf4y1m7H8/?vd_source=3778edb1b6e1766ad9e4e3d730100db0">【网页看板娘笔记2】导入自己的live2d模型</a></li><li><a href="https://blog.misaka.rest/2023/02/01/hexo-gitalk/">在Hexo中添加Gitalk评论系统</a></li><li><a href="https://creteisland.netlify.app/">CreteIsland</a></li><li><a href="https://blog.csdn.net/qq_44082148/article/details/105701427#:~:text=%E5%AE%89%E8%A3%85%20hexo-symbols-count-time%20%24%20npm%20install%20hexo-symbols-count-time%20--save%201,total_time%3A%20true%20%23%20%E7%AB%99%E7%82%B9%E6%80%BB%E9%98%85%E8%AF%BB%E6%97%B6%E9%95%BF%20exclude_codeblock%3A%20false%20%23%20%E6%8E%92%E9%99%A4%E4%BB%A3%E7%A0%81%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1">设置封面字数统计和阅读统计</a></li><li><a href="https://wangxchun.github.io/2018/09/05/hexo%20cancel-auto-numbering-in-directory/">怎么取消文章目录中对标题的自动编号</a></li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 总结归纳 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>数据库系统概论-chapter10数据库恢复技术</title>
+      <link href="/2023/07/14/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA-chapter10%E6%95%B0%E6%8D%AE%E5%BA%93%E6%81%A2%E5%A4%8D%E6%8A%80%E6%9C%AF/"/>
+      <url>/2023/07/14/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA-chapter10%E6%95%B0%E6%8D%AE%E5%BA%93%E6%81%A2%E5%A4%8D%E6%8A%80%E6%9C%AF/</url>
+      
+        <content type="html"><![CDATA[<p>事务是一系列的，数据库操作是数据库应用程序的基本逻辑单元事务处理技术主要包括数据库恢复技术和并发控制技术。</p><p>所谓事务，是用户定义的一个数据库操作序列，这些操作要么全做，要么全不做，是一个不可分割的工作单位。通常以。事务begin，transaction开始。具体地说就是将事务中所有的数据库的更新写回到磁盘上的物理数据控中去。</p><p>尽管数据库系统中采用了一些措施来防止数据被盗取，保证数据的安全和和完整，但是。计算机系统中的故障软件的错误车操作员失误等恶意的一些破坏是不可避免的这些故障，轻则叫成了事务的中断影响数据库的数据重则严重破坏了数据库系统。</p><p>那么故障的分类主要。分为事务的内部故障。系统故障。介质故障</p><p>事物的内部故障是指。通过事务程序本身发现的。不能由事务程序处理。事务内部更多的故障是非预期的，不能由应用程序处理。树故障意味着事物没有达到预期的终点。那么。恢复程序要在不影响其他事务的情况下强行回滚该事务撤销已经作出的更改。</p><p>系统故障是指系统造成停止运转的任何事物，使得系统重新启动的故障。</p><p>戒指故障。称为硬故障。硬故障是指嗯外存故障磁盘损坏喷头撞坏瞬时。强磁场干扰等故障。这类故障破坏数据库或部分数据库影响正在存取这部分数据的所有事务。</p><p>计算机病毒是一种人为的故障和破坏。是一种恶作剧者研制的一种计算机程序。</p><p>恢复技术的实现。<br>建立冗余数据是最常用的数据转存和登记日志的技术。登记日志文件日志文件是用来记录事务对数据库使用更新的操作日志文件通常需要记录的是各个事务的开始结束以及所有的更新操作日志文件，它主要的作用是恢复。数据库有着重要的作用可以用来进行事务的恢复和系统的修复。</p><p>如果十日至能够发挥相应的作用呢？必须遵守两条规则，就是先写日志，再解数据库，其次是登记的顺序，必须要严格的按照时间的次序。</p><p>恢复策略主要从两个角度进行考虑，事务的恢复和系统故障的恢复。事务的恢复主要是。先反向扫描文件，对文件进行逆操作，继续反向扫描文件，如此处理，直到事务的开始系统故障的恢复项扫描的文件找出故障之前已经提交的事务并将事务标记进入。重做队列。同时找出故障发生的未完成的事务这些事务没有写入系统中。需要撤销。戒指恢复呢？戒指恢复是最严重的。破坏，所以说只能重装数据库。</p><p>具有检查点的恢复技术是什么意思？检查点记录是是指。在日志文件中增加一类记录检查点的记录增加一个重新开始的文件让恢复子系统在登录日志动态的维护日志。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 专业知识基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据库原理 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>数据库系统概论-chapter7关系数据库理论</title>
+      <link href="/2023/07/14/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA-chapter7%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA/"/>
+      <url>/2023/07/14/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA-chapter7%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 专业知识基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据库原理 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>数据库系统概论-chapter6关系数据库理论</title>
+      <link href="/2023/07/14/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA-chapter6%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA/"/>
+      <url>/2023/07/14/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA-chapter6%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA/</url>
+      
+        <content type="html"><![CDATA[<p>针对一个问题，我们该如何构造一个适合它的数据库模式？应该构造几个关系模式。每个关系模式应该有哪些属性呢？这些数据库设计的问题，确切地讲是关系数据库逻辑设计的问题。由于关系模型有严格的数学理论基础，并且可以向别的数据库进行模式模型转换，因此人们就以关系数据库为背景来讨论这个问题形成了数据。库逻辑设计的一个有力工具，关系数据库的规范化理论。</p><h2 id="基本概念。"><a href="#基本概念。" class="headerlink" title="基本概念。"></a>基本概念。</h2><p>数据依赖是一个关系。内部属性与属性之间的约束关系。这种约束关系是通过属性间值的相等与否来体现数据间的关系联系。对于数据依赖，其最重要的就是函数依赖和多值依赖。</p><p>对于一个通常的普通的。关系。它会存在可能一些问题，数据冗余，更新异常，插入异常，删除异常。我们现在的问题是如何对原来的模式进行分解来解决这些问题呢？这就涉及到了数据库的规范化。</p><p>##规范化。<br>函数依赖。函数依赖其实就是可以从函数的概念去理解其对于一个关系。它的两个。属性。我有两个元组。他们X属性相等，但是y属性不等，那么这就不叫做函数依赖函数依赖是指在。两个元组。不可能存在说他X的属性相等时，y的属性不同，即X确定了，y也跟着确定了。</p><p>进而引出几个常见的概念频繁函数依赖是指X。函数X确定y，但是y是属于X的一个子集，那么就称作是平凡函数依赖。相反，非平凡函数依赖是指X函数确定y，但是y不属于X。X的函数确定y，那么也称是称。X称为这个函数依赖的决定性组也称为决定因素。如果X决定y。并且X的任何一个真子集，都不能决定y就是说明决定y的。呃，元素的最小的集合，那么就称作。Y对X完全函数依赖。相反，如果X函数决定y，但是y不完全函数依赖于X则称，y对X部分函数依赖。同样的，如果X函数决定y且y。不含于X。Y。度的函数不决定X。且y的函数决定Z。那么。Z对X传递函数依赖集做X传递Z。</p><p>马是一个重要的概念。包含任何一个候选码的属性称为主属性。不包含在内的称为非主属性。属性或集合。K完全。函数依赖于you那么key称为儿的候选吗？在极端的情况下，如果整个属性组都是马的话，那么称为全马。</p><h2 id="范式。"><a href="#范式。" class="headerlink" title="范式。"></a>范式。</h2><p>范式是关系数据库中。满足不同程度要求，的一种规范一个第一集的范式的关系通过模式分解可以转换为高一级别的范式的过程称为规范化，就是范式由低到高逐渐变得规范的过程。</p><h2 id="二范式。"><a href="#二范式。" class="headerlink" title="二范式。"></a>二范式。</h2><p>二范式。要前提是，它是一范式，并且每一个非主属性完全依赖于任何一个候选码。二范式解决的是不存在非主属性对码的部分函数依赖。</p><h2 id="三藩市。"><a href="#三藩市。" class="headerlink" title="三藩市。"></a>三藩市。</h2><p>Seven是解决的是不存在非主属性对码的传递函数依赖。</p><h2 id="增强三范式。"><a href="#增强三范式。" class="headerlink" title="增强三范式。"></a>增强三范式。</h2><p>增强三范式解决的是主属性对码的部分函数依赖和传递函数依赖。哎呀，救命。多值依赖，多值依赖，不用看了。四方式也不用看了吧？阿姆斯特朗。数据库依赖公理系统。极小函数依赖集，亦称为最小依赖集。模式的分解。</p><p>阿姆斯特朗公理系统。Armstrong。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 专业知识基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据库原理 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>数据库系统概论-chapter5数据库完整性</title>
+      <link href="/2023/07/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA-chapter5%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%8C%E6%95%B4%E6%80%A7/"/>
+      <url>/2023/07/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA-chapter5%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%8C%E6%95%B4%E6%80%A7/</url>
+      
+        <content type="html"><![CDATA[<p>数据库的完整性是指数据的正确性和相容性。正确性呢，是指数据符合现实世界语义，反映当前实际状况。相容性是指数据库同一对象在不同关系中的数据是符合逻辑的。</p><p>为了实现完整性，数据库管理系统必须实现如下功能，提供完整性约束条件的机制。提供完整性检查的方法。进行违约处理。必须满足的语义条件，</p><h2 id="实体完整性。"><a href="#实体完整性。" class="headerlink" title="实体完整性。"></a>实体完整性。</h2><p>实体完整性。首先。主码不能为空。我们定义主码为primary key。当如果表中有多个属性维码时，我们定义。Primary key小括号。然后竹马。</p><p>对于实体的完整性检查和相应的违约处理，我们是这样做的首先检查主码是否唯一如果不唯一的话我们就拒绝插入其次。检查各各种码的属性，是否为空，如果为空的话，我们拒绝插入和修改。总的来说，实体完整性就是检查它的主属性不能为空。不能是没有意义的吃。如果我们检查出来之后我们就拒绝相应的抄入插入和更改来保证我们数据库实体完整性。</p><h2 id="参照完整性。"><a href="#参照完整性。" class="headerlink" title="参照完整性。"></a>参照完整性。</h2><p>参照完整性呢？我们是定义。外码foreign。Net KSNO reference student SNO。在表中我们定义外码参考于相应的主码。而对于相应的，参照完整性的检查和违约处理。当插入元组和修改外码值时，引发了相应的可能会破坏完整性的条件，我们则拒绝。如果删除元组或修改主码值。的时候。也会产生相应的可能破坏完整性的，结果我们就拒绝删除或者级联删除。或者设置为空纸。对于级联删除的意思，比如说我们在删除学号为20016101的学生的元组时，我们要从相应的SC表中也删除到相应的元组。设置为空值是指当我们删除了一个属性而别的关系，如果用到了这个关系中的属性呢？我们就把，呃，另一个表中这个所有的属性都删除。举个例子就是说比如说我们把一个呃就是coser course。秒钟，他的一个专业给删掉了，那我们在学生中所有涉及这个专业的。学生的那一个属性，我们都把它设置成空来维持，保证我们的完整性。其实，翻来覆去。这么做还是保证我们参照是对应的，不能参照不存在的，当它不存在的时候，我们就把它通通删掉。</p><p>用户自定义完整性呢？这个比较好理解，就是我们自己定义的一些呃特性。和一些标准我们在呃表中的话，我们是用这个constraint约束限制这个单词去，呃，定义相应的完整性。比如说我们可以定义一些表，它不可以为空值，然后定义一些属性的取值范围是，呃，在盈利的区间定义一些，呃，性别的取值。分为呃，只是一个单选这样。</p><h2 id="断言。"><a href="#断言。" class="headerlink" title="断言。"></a>断言。</h2><p>通过声明断言来制定更加一般性的约束。创建断言后，对断言中任何涉及的相关操作都会触发数据库对断言进行检查。任何断言不为真值的操作都会被拒绝。相当于我们将一些约束写到了一个。集合用try catch进行包裹，对于可能触发数据库完整性威胁的语句，我们对它进行一个高度重视。</p><h2 id="触发器，trigger。"><a href="#触发器，trigger。" class="headerlink" title="触发器，trigger。"></a>触发器，trigger。</h2><p>触发器是用户定义在关系表上的一个驱动类。的特殊过程相当于我们定义了一个监听器去时时刻刻监听我们相应的危险行为。一旦涉及到触发事件我们就执行相应的触发动作。所以触发器又叫做事件条件动作规则。通常而言，激活触发器是由触发事件进行激活。</p><p>嗯。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 专业知识基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据库原理 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>数据库系统概论-chapter4数据库安全性</title>
+      <link href="/2023/07/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA-chapter4%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E5%85%A8%E6%80%A7/"/>
+      <url>/2023/07/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA-chapter4%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E5%85%A8%E6%80%A7/</url>
+      
+        <content type="html"><![CDATA[<h2 id="数据库安全性的概述"><a href="#数据库安全性的概述" class="headerlink" title="数据库安全性的概述"></a>数据库安全性的概述</h2><p>为什么数据库不安全？<br>存在非授权用户对数据库的恶意存取和破坏。一起数据库中一些重要或敏感的信息被泄露，还有安全环境的脆弱性也会造成数据库的威胁</p><p>安全标准。<br>当前主要有两种。标准，一种是TC SEC。TC SEC是美国国防部颁布的。可信。计算机系统评估准则。Trusted computer system evolution。Criteria。</p><p>通用准则。 CC。它是一些国家和组织联合的一个行动，他们发起的一个项目。去制定一个标准。现在呢，CC已经取代了TC SEC。</p><p>根据计算机系统对各个指标的支持情况呢？TC SEC将系统分成四组，分别是DCBA。按照系统的可靠性和可靠程度逐渐增强。</p><h2 id="数据库安全性控制。"><a href="#数据库安全性控制。" class="headerlink" title="数据库安全性控制。"></a>数据库安全性控制。</h2><p>用户身份鉴别通常包括静态口令动态口令和生物特征识别以及智能卡识别。<br>存取控制。什么是存取控制，顾名思义就是在它读取和存储数据的时候对它进行限制。存取控制主要包括用户权限和合法性权限检查两个部分。在定义用户权限阶段，我们。根据某个用户是否有某种权利。来定义它的权限。在合法检查阶段。当用户发出请求之后，我们去检查他是否有合法的身份访问餐饮的数据。如果超出了电影的权限范围，我们则拒绝其操作。</p><p>自主存取控制方法是什么呢？用户的权限由两个要素组成，数据库对象和操作对象。定义存储权限就称为授权。存储的控制对象不仅有数据，而且还有数据库的模式等等。因此我们也可以通过自主控制存取。机制。的grant和revoke进行实现。自主存取控制就是我们自行可以控制相应的权限分配。</p><p>授权，授予与回收。授权，grant。指令。指定操作对象。的操作权限给相应的用户。在授权过程中，高级的用户管理员可以授权给低级的用户管理员，然后低级的用户管理员可以授予级别更低的用户，但是。可以允许层级层次授权，但不允许循环授权，即权力最低的管理员不可以再将权力授给祖先或者授予者。</p><p>权利的撤权撤销，简称revoke，对权力进行回收。</p><p>数据库的角色，它是被命名的一组数据库操作的权限。角色其实就是权限的集合。我们在授权的过程中，其实就是给相应的。对用户进行授权。即拥有这些权利的集合。我们称之为用户。</p><p>审计。审计的功能是把用户对数据库所有的操作自动记录下来，放入日志。点击语言呢？根据相应的日志记录去检查数据库各种行为。重现当时数据库有状况的事例，并且找出相应的非法的人或事以及发生异常的时间和内容。Trigger。数据的加密，其他安全推理隐秘通道。推理控制。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 专业知识基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据库原理 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>数据库系统概论-chapter3关系数据库标准语言SQL</title>
+      <link href="/2023/07/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA-chapter3%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A0%87%E5%87%86%E8%AF%AD%E8%A8%80SQL/"/>
+      <url>/2023/07/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA-chapter3%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A0%87%E5%87%86%E8%AF%AD%E8%A8%80SQL/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1概述"><a href="#1概述" class="headerlink" title="1概述"></a>1概述</h2><p>SQL语句的特点综合统一</p><p>高度非过程化 非关系数据库模型，它是面向过程的语言，用过程化的语言完成任务就是是说它需要去找到特定的路径进行存续儿。Circle进行存取数据时他只考虑我们要做什么，不考虑怎么做。对怎么做进行一个分装式，我们可以直接像调用API一样去实现我们目的。</p><p>面向集合的操作方式 Circle呢？它是通过。呃，集合的操作方式。进行相应的增删改查。</p><h2 id="2-数据定义与查询"><a href="#2-数据定义与查询" class="headerlink" title="2 数据定义与查询"></a>2 数据定义与查询</h2><p>数据定义：一个关系数据库管理系统。的实例可以建立多个数据库。一个数据库可以建立多个模式，一个模式通常包括多个表视图和索引等数据库对象。我们可以定义基本表。和相应的数据类型。以及修改基本表等相应的操作。数据查询。</p><p>索引：所以的建立与删除的功能是当表的数据量比较大时，查询的时候会花费较多的时间建立索引可以进行更快的检索。Unique index。</p><p>数据查询：<br>聚合函数。包括count sum average Max min</p><p>视图是从一个或几个基本表导出的表。它与基本的表不同，是一个虚表，只存放视图的定义。从来不存放数组的数据。啊。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 专业知识基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据库原理 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>数据库系统概论-chapter2关系数据库</title>
+      <link href="/2023/07/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA-chapter2%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+      <url>/2023/07/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA-chapter2%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93/</url>
+      
+        <content type="html"><![CDATA[<p>关系数据库是支持关系模型的数据库系统。第一章初步介绍了关系模型及其基本的概念。本章将深入的解析。关系模型。按照关系模型的三个要素关系模型由关系数据库关系操作集合和关系完整性约束三部分组成。下面分别对这三部分进行介绍。</p><h2 id="1-关系数据库结构及形式化定义"><a href="#1-关系数据库结构及形式化定义" class="headerlink" title="1 关系数据库结构及形式化定义"></a>1 关系数据库结构及形式化定义</h2><p>关系模型的数据结构很简单，只包含单一的数据结构关系。而在我们看来，关系就是一张扁平的二维表。<br><strong>域：</strong> 域是一组相互数据类型的值的集合，,它的概念就是给数据库中集合的概念。<br><strong>笛卡尔集：</strong> 笛卡尔集是两组域乘积,两个集合的笛卡尔集。最后这个维度等于相乘的集合的个数，也就是说两个集合相乘之后，那么他们笛卡尔集集合的元素的维度是2。<br><strong>关系：</strong> 关系是笛卡尔集的子集。我们在定义关系的时候，,可以理解为从笛卡尔集中抽出我们所需要的有效的维度信息，而不是全部的维度信息。<br><strong>候选码:</strong> 候选码是唯一能标识元组的一组值而他的自己不能达到这个目的。我们称属性组为候选码，当有多个候选码时，我们选其中的一个作为主码。<br><strong>关系模式：</strong> 关系的描述，我们称之为关系模式。在关系数据库中，我们讲键与值的概念，而键是指了关系模式，值是指关系。</p><h2 id="2-关系操作"><a href="#2-关系操作" class="headerlink" title="2 关系操作"></a>2 关系操作</h2><h3 id="2-1-基本的关系操作"><a href="#2-1-基本的关系操作" class="headerlink" title="2.1 基本的关系操作"></a>2.1 基本的关系操作</h3><p>关系模型中常用的操作呢包括：查询、插入、删除、和修改，即我们所说的增删改查。</p><p>查询：查询操作又可分为、选择、投影、连接、除、并、交、笛卡尔积，在后面的章节我们会对这些操作进行一一的讲解。</p><h3 id="3-关系的完整性"><a href="#3-关系的完整性" class="headerlink" title="3 关系的完整性"></a>3 关系的完整性</h3><p>实体完整性 顾名思义实体完整性就是指。任何一个属性。如果是关系的主属性的话，那么他则不能是空值，这个空值就是说他不可以是不知道不存在无意义的事，因为作为他的主属性，我们是要根据它的主属性去区分不同的元组。之间相当，于是对它的一个定位，如果它存在空值和暧昧的话，我们就无法实现对它的精准查找。</p><p>参照完整性。在实际生活中关系之间存在，相互联系。一个关系经常会引用到另一个关系，那么，呃，我们在设计的时候要满足参照完整性及。相互引用的关系要相一致匹配。不可以说我们引用了一个不存在或者是错误的一个只。换句话说。不同的关系中某些属性的值的取值要参照另一个关系的属性取值。</p><p>用户自定义完整性。任何关系数据库都支持实体完整性和参照完整性，这是关系模型的要求但是在用户自定义完整性呢？它会根据它的应用环境而有所不同那用户自定义纹理性顾名思义就是用户自己定义的对数据的一个。完整度的考量，比如说我们定义某一个属性取唯一值，这个属性不能涉及，嗯，一些我们不满足的语义信息，比如说我们这个呃这个数据的语义信息必须是字符串或者说整形。如果是成绩的话，我们定义它的取值范围在哪段区间之内。这是这些是我们自己定义的规则。用户自定义完整性你主动</p><h2 id="4-关系代数"><a href="#4-关系代数" class="headerlink" title="4 关系代数"></a>4 关系代数</h2><p>传统的集合运算。</p><p>专门的关系运算。</p><p>选择选择又称为限制级在我们选择的时候要对我们所选的属性线进行相应的限制，即满足一定的条件。</p><p>连接 连接是两个关系，进行笛卡尔集。选取属性，满足一定条件。的元组。在连接过程中，我们通常会选择对应的属性值相同或。满足小于大于等一些条件。在连接中呢有一个特殊的情况，叫做自然连接自然连接。它要求两个关系，进行比较的分量必须是同名的属性组，即我们在最后的连接表中，呃，连接的关系中不存在，呃。同样的属性出现两次。其实，很好理解。在观察呃，两个关系的等值连接和自然连接的过程中你会发现，呃，存在两列。除了它们的名称不同，它们的值相同，这样会在存储的时候造成一个浪费那我们可以省略掉这部分。描述。因为他们都是相同的，所以不会影响我们最后的关系的。确立。</p><p>投影 想象一下，光从上照下来之后。相当于把。遮挡的光线压缩成影子。那么在数据库中投影的概念也类似于此你可以想象。你的眼神从上往下去扫描关系的每一列。对于所需要的列进行选择，这个就是投影，要记住投影操作是从列的角度进行的运算。</p><p>除运算 除运算呢，是一个不太好理解的定义，因为我们在理解种运算的时候，我们还需要理解一个项集的概念。在这里呢，我想用一个比。比较。通俗的概念去讲解，虽然这个可能带一点点。想象力的因素 我们都知道在夏季的时候象是走田字这个田字你会发现它其实像一个关系表的样子，其实相机它还是一个关系，只不过呢这个关系是限制了某一个。元素的值的一个关系，你可以停下来好好理解一下这句话。那知道了这样的概念呢？我们看这个例子就会很明白。</p><p>其实在除的时候它隐形的满足一个条件就是这两个关系，它是有共同的属性列的。而我们去计算相机的时候也用到这个概念。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 专业知识基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据库原理 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>数据库系统概论-chapter1绪论</title>
+      <link href="/2023/07/12/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA-chapter1%E7%BB%AA%E8%AE%BA/"/>
+      <url>/2023/07/12/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA-chapter1%E7%BB%AA%E8%AE%BA/</url>
+      
+        <content type="html"><![CDATA[<h2 id="一、绪论"><a href="#一、绪论" class="headerlink" title="一、绪论"></a>一、绪论</h2><h3 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1.基本概念"></a>1.基本概念</h3><p><strong>数据</strong> 数据是数据库中存储的基本对象。那么什么是数据呢？描述事物的符号就称为数据。描述事物的符号可以是数字，也可以是别的表现形式。它们都经过数字化后计入计算机。数据的含义称为数据的语义。数据与其语义是不可分割的。</p><p><strong>数据库</strong> 顾名思义就是存放数据的仓库。只不过呢，这个仓库是存放在计算机上，并且有一定的格式存放要求。那么数据库的严格意义是长期存储在计算机内有组织的可共享的大量数据的集合。这些数据从应用程序中抽象出来。按一定的规模进行组织，使它具有较小的冗余度，较高的数据独立性和易扩展性，能够实现各个用户之间的共享。</p><p><strong>数据库管理系统</strong> 数据库管理系统是位于用户与操作系统之间的一个数据管理软件。那么数据库管理系统和操作系统一样，是计算机的基础软件，也是一个庞大的软件系统。它主要有几下方面功能。数据的定义。数据组织。数据操作数据库事务管理和运行管理。数据库建立和功能维护。</p><p><strong>数据库系统</strong> 什么数据库系统呢？总而言之，它是由数据数据库，数据库管理系统，应用程序和数据库管理员组成的具有存储管理，处理和维护数据的系统。</p><h3 id="2-数据库的发展"><a href="#2-数据库的发展" class="headerlink" title="2.数据库的发展"></a>2.数据库的发展</h3><p><strong>第一个阶段是人工管理阶段</strong> 那个时候呢硬件发展不完全，软件也没有操作系统。没有管理数据的软件数据的处理方式就是批处理。那个时候有数据有哪些特点呢？</p><p>(1)首先是数据它不能保存。其次，应用程序管理数据。数据是需要有应用程序来管理的。这样会增加程序员的负担。并且应用程序要明确数据的这个规范和逻辑。</p><p>(2) 数据不共享。因为那个时候的数据是面向应用程序的，它一组数据只能由一个程序来对应。如果涉及到多个应用程序访问同一个数据的时候。必须独立的定义，无法相互使用参考。</p><p>(3) 数据没有独立性，数据的逻辑结构和物理结构发生变化呢？必须对应用程序进行相应的修改，数据完全依赖于应用程序。</p><p><strong>第二个阶段是文件系统阶段</strong> 这个时候呢，硬件软件有了相应的提升，软件软件方面，操作系统也有了专门的数据管理软件，一般称为是文件系统。</p><p>这个时期文件管理系统有哪些特点呢？<br>数据可以长期保存的。数据是由文件系统来进行管理,但是仍然存在一些缺点:</p><p>(1) 数据的共享性差。为什么呢？在系统中。一个文件基本对应一个应用程序文件还是面向应用程序的。当不同的应用程序具有部分相同的数据时，必须建立各自的文件而不能共享。</p><p>(2) 其次是数据的独立性差。文件系统中的文件还是为应用服务,文件逻辑结构针对的是应用来进行设计的,如果想要在文件中数据加一些新的应用会很难。</p><p><strong>第三个阶段是数据库阶段</strong> 这个时候软硬件的情况又是如何呢？硬件已经有了，磁盘硬件的价格下降，软件价格上升。</p><p>在这个背景下，文件系统作为数据管理的手段，您不能满足应用的需求。于是就诞生了专门的数据管理软件系统数据库管理系统，用数据库系统管来管理数据呢。最明显的优点就是从文件到数据库系统，标志着数据管理技术的飞跃。</p><h3 id="3数据库系统的特点"><a href="#3数据库系统的特点" class="headerlink" title="3数据库系统的特点"></a>3数据库系统的特点</h3><p>(1) 结构化。数据库系统实现整体数据的结构化。这是数据库的主要特征之一，也是数据库系统与文件系统的本质区别。结构化该怎么理解呢。作为整体的结构化就是指数据库中的数据。它不再是仅仅针对某一个应用，而是面向于整个组织或企业。不仅数据内部是结构化的，而且整体是结构化的，数据之间是有关联的。</p><p>(2) 数据的共享性高冗余低且易扩展。因为数据的共享呢，它就可以减少数据的冗余，节约存储空间。避免。内容的不一致性。</p><p>(3) 数据的独立性高。数据独立性是借助数据库一个显著的优点。而独立性呢，分为两个方面，一个是物理独立性和逻辑独立性。物理独立性。它是指用户的应用程序和数据库中的数据存储是相互独立的。数据在数据库中怎么存储数据库管理系统等，用户不需要去了解应用程序。主要处理的是数据的逻辑结构。逻辑，独立性。指用户的应用程序与数据库的逻辑结构是相互独立的。当数据库发生逻辑改变时，用户应用程序也可以不变。</p><p>(4) 数据由数据库管理系统统一的管理和控制。数据库管理系统还满足下方面的数据控制功能。</p><ul><li>数据安全性保护</li><li>数据完整性检查</li><li>并发控制</li><li>数据库恢复</li></ul><h2 id="二、数据模型"><a href="#二、数据模型" class="headerlink" title="二、数据模型"></a>二、数据模型</h2><p>(1) 概念模型<br>概念模型它是根据用户的需求和观点对数据进行建模用于数据库 用于数据库的设计。<br>概念模型。包括一些基本的概念，实体、属性、码、实体型、实体集、联系。分别进行一一解释。</p><p><strong>实体</strong>：观存在并且可以相互区分的事物。<br><strong>属性</strong>：实体具有的特性称为属性。<br><strong>码</strong>：唯一标识实体的属性称为码。<br><strong>实体型</strong>：用实体名及属性名集合来抽象刻画同类实体，称为实体型。<br><strong>实体集</strong>：全体的实体集合，称为实体集。<br><strong>联系</strong>：实体之间的联系，通常指不同实体集之间的联系。</p><p>(2) 逻辑模型和物理模型<br>概念模型、逻辑模型、包括层次模型网状模型关系模型等等。主要实现数据库管理系统的实现。是从计算机的角度进行建模。</p><p>数据模型</p><p>数据模型通常由数据结构数据操作数据完整性约束组成。数据结构描述数据库的组成对象以及对象之间的联系。数据操作是指数据库中各种对象和实例允许执行的操作的结合，包括操作及有关的操作规则。数据的完整性，约束条件。是一组完全解信规则。</p><p>常见的数据模型呢？网状模型，层次模型，关系模型。</p><h2 id="三、数据库系统结构"><a href="#三、数据库系统结构" class="headerlink" title="三、数据库系统结构"></a>三、数据库系统结构</h2><p>数据库，系统模式的概念。有形和值的概念。模式是数据库中全体数据的逻辑结构和特征的描述。它仅仅涉及型的描述，不涉及值的描述。因此模式是相对稳定的，而实例是相对变化的。数据库中的数据可能会随着时间的变化而变改变，但是数据库的模式是不会变的。</p><p>数据库的三级模式是指的数据库由外模式模式和内模式三级构成。模式也称逻辑模式。它是指全局数据的逻辑结构。是所有用户的公共数据视图。而外模式呢，又称为子模式。或用户模式？是数据库，用户能够看见或使用的。描述。内模式也称为存储模式。一个数据库只有一个内模式是物数据物理结构和存储方式描述。</p><h3 id="四、数据库系统的组成"><a href="#四、数据库系统的组成" class="headerlink" title="四、数据库系统的组成"></a>四、数据库系统的组成</h3><p>数据库系统分别由以下部分组成。第一部分，硬件平台和数据库。第二部分软件第三部分人员。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 专业知识基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据库原理 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>线性代数-chapter6线性空间和线性变换</title>
+      <link href="/2023/07/11/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0-chapter6%E7%BA%BF%E6%80%A7%E7%A9%BA%E9%97%B4%E5%92%8C%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2/"/>
+      <url>/2023/07/11/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0-chapter6%E7%BA%BF%E6%80%A7%E7%A9%BA%E9%97%B4%E5%92%8C%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2/</url>
+      
+        <content type="html"><![CDATA[<p>线性空间是线性代数的基本研究对象之一，线性空间是向量空间的扩展，它使向量和向量空间的概念更具有一般性，同时也更加抽象。本章将给出一般线性空间的概念，并介绍线性空间上的一种重要对应关系，即线性变换和线性变换所对应的矩阵之间的关系。</p><h3 id="1-线性空间的概念"><a href="#1-线性空间的概念" class="headerlink" title="1.线性空间的概念"></a>1.线性空间的概念</h3><p>我们曾定义过向量空间，那么对于线性空间的定义：在集合v的元素之间定义加法对于任意的。两个元素，它们的和也属于这个元素对加法封闭。在集合中的元素与数域的元素之间进行数量乘法，如果两种运算满足下面的运算律，那么v是P上的一个线性空间。</p><ul><li>交换律</li><li>结合律</li><li>负元素</li><li>0元素</li><li>分配律</li><li>零律</li></ul><h3 id="2-线性子空间"><a href="#2-线性子空间" class="headerlink" title="2.线性子空间"></a>2.线性子空间</h3><p>如果线性空间的一个非空子集，对于加法和数乘都是封闭的，那么，它就是线性空间的一个子空间。</p><h3 id="3-线性空间的基维数与坐标"><a href="#3-线性空间的基维数与坐标" class="headerlink" title="3.线性空间的基维数与坐标"></a>3.线性空间的基维数与坐标</h3><p>什么是线性空间的基？线性空间的基是构成这个线性空间中所有向量的基础 如果这组基存在任意的一组系数，与之相乘等于零，这组基是线性相关的,否则是线性无关的。</p><h3 id="4-基变换与坐标变换"><a href="#4-基变换与坐标变换" class="headerlink" title="4.基变换与坐标变换"></a>4.基变换与坐标变换</h3><p>在N维线性空间中任意N个线性无关的向量都可以去做该向量空间的记忆。对于不同的基。从一个向量的坐标一般是不同的那么随着基的改变。向量的坐标是如何变化的？向量基的一个到另一个的变化通常由其变化矩阵来实现。我们称之为过渡矩阵。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数学基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 线性代数 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>线性代数-chapter5二次型</title>
+      <link href="/2023/07/11/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0-chapter5%E4%BA%8C%E6%AC%A1%E5%9E%8B/"/>
+      <url>/2023/07/11/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0-chapter5%E4%BA%8C%E6%AC%A1%E5%9E%8B/</url>
+      
+        <content type="html"><![CDATA[<p>二次型就是二次齐次多项式，它起源于对二次型曲线和二次曲面分类问题的讨论。它的理论和方法在多元函数求极限、运动稳定性、网络最优化、经济管理等方面有着广泛的作用。</p><h3 id="二次型及其矩阵表示。"><a href="#二次型及其矩阵表示。" class="headerlink" title="二次型及其矩阵表示。"></a>二次型及其矩阵表示。</h3><p>什么是二次型？<br>对于含有N。个变量的二次齐次多项式。就叫做二次型</p><p>那么二次型该如何转换成矩阵表达式？通常情况下我们会根据二次型中不同次数的方程的系数在相应的位置进行填入，主对角线长的位置从左上角到右下角分别是X的一次幂，二次幂，一直到N次幂。而对于X1和X2来说，他们填入的位置是第一行第二列，且系数要除以二。根据这样的规则进行填充我们可以实现将二次型转换为矩阵表达式。</p><h3 id="线性变换"><a href="#线性变换" class="headerlink" title="线性变换"></a>线性变换</h3><p>什么是线性变换呢对于两组向量如果这两组向量之间可以相互表示形如X等于Cy的形式那么我就称X到Y1个线性变换</p><h3 id="二次型化为标准型"><a href="#二次型化为标准型" class="headerlink" title="二次型化为标准型"></a>二次型化为标准型</h3><p>任何一个N元的实二次型都可以经过一个正交变换变成为标准型</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数学基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 线性代数 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>线性代数-chapter4矩阵的相似对角化</title>
+      <link href="/2023/07/11/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0-chapter4%E7%9F%A9%E9%98%B5%E7%9A%84%E7%9B%B8%E4%BC%BC%E5%AF%B9%E8%A7%92%E5%8C%96/"/>
+      <url>/2023/07/11/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0-chapter4%E7%9F%A9%E9%98%B5%E7%9A%84%E7%9B%B8%E4%BC%BC%E5%AF%B9%E8%A7%92%E5%8C%96/</url>
+      
+        <content type="html"><![CDATA[<p>矩阵的相似对角化是线性代数中的一个重要的问题，所以我们需要在接下来的过程中去求解。最佳的方程组。与此同时展开它与矩阵的特征值及特征向量密切相关模式识别经济学中的动态经济模型研究社会学中的人口迁移问题有着重要的作用。</p><h3 id="线性空间"><a href="#线性空间" class="headerlink" title="线性空间"></a>线性空间</h3><p>首先第一个概念向量空间。什么是向量空间呢？在一个空间内即满足任意的两个向量都属于这个空间任意常数乘以这一个向量也属于这个空间。那么我们就定义这是向量空间，那么在空间上定义一个二元实函数。称为内积。且具有如下的性质：</p><ul><li>线性性</li><li>对称性</li><li>正定性</li></ul><p>称向量为欧几里得向量。</p><h3 id="标准正交基"><a href="#标准正交基" class="headerlink" title="标准正交基"></a>标准正交基</h3><p>在欧式空间R的N次幂中如果一组非零向量两两正交,那么则称为一个正交向量组;如果一个基中的向量两两正交称这个基为正交基;如果一个正交基中的向量都是单位向量称这个标准正交向量。</p><p>正交矩阵的定义如果N阶方阵满足a的转置乘以a等于a乘以a的转置等于单位矩阵那么称a为正交矩阵正经正经</p><h3 id="矩阵的特征值与特征向量"><a href="#矩阵的特征值与特征向量" class="headerlink" title="矩阵的特征值与特征向量"></a>矩阵的特征值与特征向量</h3><p>什么是特征值呢如果对于一个方阵存在一个数Lambda和非零向量X使得a乘以X等于Lambda乘以X那么Lambda就是a的一个特征值而X称X为a的属于特征值的一个特征向量特征值与特征向量有哪些性质呢？一个方阵和它的转置有着相同的特征值。一个矩阵属于不同特征值的特征向量是线性无关的。</p><h3 id="矩阵的相似对角化"><a href="#矩阵的相似对角化" class="headerlink" title="矩阵的相似对角化"></a>矩阵的相似对角化</h3><p>什么是矩阵的相似矩阵呢？如果存在N阶可逆矩阵P。使得B等于P的逆乘以a乘以P。那么称a和B相似，记。作a波浪线B。这是矩阵P称为相似变换矩阵。矩阵可相似对角化有一些条件。首先第一个定理，如果N阶方阵a可以相似对角化，那么它的充要条件是a有N个线性无关的特征向量。N阶方阵a可相似。对角化的充要条件是a的每个特征值的代数重数等于它的几何重数。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数学基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 线性代数 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>线性代数-chapter3线性方程组与矩阵的初等变换</title>
+      <link href="/2023/07/11/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0-chapter3%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84%E4%B8%8E%E7%9F%A9%E9%98%B5%E7%9A%84%E5%88%9D%E7%AD%89%E5%8F%98%E6%8D%A2/"/>
+      <url>/2023/07/11/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0-chapter3%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84%E4%B8%8E%E7%9F%A9%E9%98%B5%E7%9A%84%E5%88%9D%E7%AD%89%E5%8F%98%E6%8D%A2/</url>
+      
+        <content type="html"><![CDATA[<h1 id="第三章-线性方程组和矩阵的相似对角化"><a href="#第三章-线性方程组和矩阵的相似对角化" class="headerlink" title="第三章 线性方程组和矩阵的相似对角化"></a>第三章 线性方程组和矩阵的相似对角化</h1><p>线性方程组理论是线性代数最基本的内容，实际生活中有很多问题可以总结为线性方程组的求解。在方程的数量和未知数的个数相同时，我们可以用到克拉默法则判定方程组的解，然而在实际生活中，方程的阶数和方程的个数不一定相等，这一章我们通过矩阵的初等变换来讨论线性方程组的求解方法。</p><h2 id="1-高斯消元法"><a href="#1-高斯消元法" class="headerlink" title="1.高斯消元法"></a><strong>1.高斯消元法</strong></h2><p>其实高斯消元法就是我们在初中和小学时学到的方程组的求解，然而当时的我们只是使用这种求解方法而不知道他的名字，现在我们一起去了解一下解方程组的高斯消元法</p><p>三种变换：</p><ul><li>换法变换</li><li>倍法变换</li><li>消元变换</li></ul><p>其实消元变换就是换法变换和倍法变换的组合。</p><h3 id="1-1增广矩阵"><a href="#1-1增广矩阵" class="headerlink" title="1.1增广矩阵"></a>1.1增广矩阵</h3><p>增广矩阵就是在我们方程组的系数矩阵的右边加上方程组的解，这样在变换的过程中，只要我们使得方程组左边只剩下一个未知变量，那么对应的右边便是方程组的解。</p><h3 id="1-2行阶梯型矩阵"><a href="#1-2行阶梯型矩阵" class="headerlink" title="1.2行阶梯型矩阵"></a>1.2行阶梯型矩阵</h3><p>行阶梯行矩阵就是像阶梯一样的矩阵每个台阶只有一行，阶梯线下方的元素都为0。</p><p>要注意的问题：<br>想想实际生活中，阶梯有没有可能长度不一样，如果有的话会不会影响行走？阶梯的高度有没有可能不一样？如果有的话会不会影响行走，这样你就会明白为什么叫做<strong>行阶梯</strong>了。</p><p>在求解过程中，如果方程的未知数多余方程的个数，那么这个时候会存在自由未知量，当方程有无数个解时，其中的一个解便是<strong>特解</strong>（特殊的一个解）。</p><h2 id="2矩阵的初等变换和矩阵的秩"><a href="#2矩阵的初等变换和矩阵的秩" class="headerlink" title="2矩阵的初等变换和矩阵的秩"></a><strong>2矩阵的初等变换和矩阵的秩</strong></h2><p>初等矩阵：对单位矩阵E进行一次初等变换之后的矩阵，在初等变换矩阵这里有一个重要的概念就是，对矩阵进行初等行变换相当于左乘初等变换矩阵，列变换相当于右乘。</p><p>矩阵的秩：矩阵的秩是线性代数中一个重要的概念，用于描述矩阵的线性相关性和维度。秩可以帮助我们理解矩阵的性质和解决一些问题。矩阵的秩表示的是他行或列线性无关组的向量行数或列数。如果拿k阶子是来解释的话，即矩阵的存在一个r阶子式不为0，r+1阶子式全为0，那么矩阵的秩为r。</p><p>矩阵的秩有一些常见的性质：</p><ul><li>矩阵的秩不超过它的行数或列数。</li><li>对于一个n×n的方阵，如果它的秩等于n，那么它是满秩的，表示它的行向量组或列向量组是线性无关的，它是可逆的。</li><li>对于一个m×n的矩阵，它的秩不超过m和n中的较小值，如果秩等于m或n，那么它是满秩的，表示它的行向量组或列向量组是线性无关的。</li></ul><h2 id="3线性方程组的解的判定定理"><a href="#3线性方程组的解的判定定理" class="headerlink" title="3线性方程组的解的判定定理"></a><strong>3线性方程组的解的判定定理</strong></h2><p>对于线性方程组而言：<br>（1）形如Ax&#x3D;b的矩阵有解的充要条件是R(A)&#x3D;R(A,b)&#x3D;r，当满足有解的条件下r&#x3D;n是有唯一解，r&lt;n时有无穷多解<br>（2）形如Ax&#x3D;0的矩阵一定有解，当R(A)&#x3D;n时候只有零解（唯一解）r&lt;n时候有非零解（无穷多解）<br>这样对应起来记忆会更好一点~</p><h2 id="4向量组的线性相关性"><a href="#4向量组的线性相关性" class="headerlink" title="4向量组的线性相关性"></a><strong>4向量组的线性相关性</strong></h2><p>定义：一组向量的线性组合称为向量组的线性组合（？说了好像没说，看图）</p><div>    <img src=‘https://s1.ax1x.com/2023/07/14/pC450Sg.jpg height='300px' style='border: solid #c3c3c2;border-radius: 6px;'>    <h4 style='text-align: center;color: #403f3d;font-family:kaiti'>图1 向量的线性组合</h4></div><p>向量组的等价：两组向量可以由对方彼此相互表示，则说明这两组向量是等价的。</p><p>线性相关和线性无关：对于一个向量组，如果存在一个不全为0的一组系数，使得这组向量为0，那么他们便是线性相关的，否则便是线性无关的。另外，一组向量线性相关的充要条件是R(A)&lt;n,线性无关的条件是R(A)&#x3D;n。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数学基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 线性代数 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>线性代数-chapter2矩阵及其运算</title>
+      <link href="/2023/07/11/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0-chapter2%E7%9F%A9%E9%98%B5%E5%8F%8A%E5%85%B6%E8%BF%90%E7%AE%97/"/>
+      <url>/2023/07/11/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0-chapter2%E7%9F%A9%E9%98%B5%E5%8F%8A%E5%85%B6%E8%BF%90%E7%AE%97/</url>
+      
+        <content type="html"><![CDATA[<h1 id="第二章-矩阵及其运算"><a href="#第二章-矩阵及其运算" class="headerlink" title="第二章 矩阵及其运算"></a>第二章 矩阵及其运算</h1><p>第二章我们研究的是矩阵以及运算，这里我们特别的要区分一下矩阵和行列式的不同之处，一个是多维的向量，一个是数值，可不要被他外边包裹的小小的符号“[ ]”,“| |”所迷惑！</p><h2 id="1-矩阵的定义"><a href="#1-矩阵的定义" class="headerlink" title="1.矩阵的定义"></a><strong>1.矩阵的定义</strong></h2><p>同样的，我们从方程组中抽象出来的用“[ ]“包裹的数表叫做矩阵，但是，仔细观察你就会发现，矩阵不一定是方阵，因此他的行数和列数不一定相等，而且矩阵的数表里面有等号右边→_→的结果。在实际生活中，矩阵常常伴随着每一维度不同的含义，通常行代表不同的样本，列代表不同的属性。当且仅当行数等于列数时候，矩阵是方阵。</p><p>特殊矩阵：</p><ul><li>三角矩阵：矩阵的内容刚好填充了上三角或或下三角的内容</li><li>对角矩阵：对角线都为零</li><li>数量矩阵：对角线都为相同的数，特别的，当全部都为1时成为单位矩阵。</li></ul><h2 id="2-矩阵的运算"><a href="#2-矩阵的运算" class="headerlink" title="2.矩阵的运算"></a><strong>2.矩阵的运算</strong></h2><h3 id="2-1矩阵的加法运算"><a href="#2-1矩阵的加法运算" class="headerlink" title="2.1矩阵的加法运算"></a>2.1矩阵的加法运算</h3><p>对应矩阵位置的数相加，特别的需要他们的维度相同。</p><h3 id="2-2矩阵的数乘运算"><a href="#2-2矩阵的数乘运算" class="headerlink" title="2.2矩阵的数乘运算"></a>2.2矩阵的数乘运算</h3><p>和行列式要区分开，k乘以一个矩阵等于乘以所有的数。</p><h3 id="2-3矩阵的乘法运算"><a href="#2-3矩阵的乘法运算" class="headerlink" title="2.3矩阵的乘法运算"></a>2.3矩阵的乘法运算</h3><p>矩阵的乘法需要满足正确的维度<code>(n, m)x (m, k)</code>，谈到矩阵乘法就想起一个非常经典的动态规划问题。<br><font size=4 face='kaiti' color=#f45b1f>特别的，矩阵满足结合律和分配律，不满足交换律</font></p><h3 id="2-4矩阵的转置"><a href="#2-4矩阵的转置" class="headerlink" title="2.4矩阵的转置"></a>2.4矩阵的转置</h3><p>互换矩阵的行和列，相当于沿时钟方向旋转一个角度。特别的: $$（AB)^T &#x3D; B^TA^T$$</p><h3 id="2-5矩阵的共轭"><a href="#2-5矩阵的共轭" class="headerlink" title="2.5矩阵的共轭"></a>2.5矩阵的共轭</h3><div>    <img src='https://s1.ax1x.com/2023/07/14/pC45aY8.jpg' height='300px' style='border: solid #c3c3c2;border-radius: 6px;'>    <h4 style='text-align: center;color: #403f3d;font-family:kaiti'>图1 共轭矩阵的定义</h4></div><h3 id="2-6-方阵的行列式"><a href="#2-6-方阵的行列式" class="headerlink" title="2.6 方阵的行列式"></a>2.6 方阵的行列式</h3><p>由<strong>n阶方阵</strong>构成的行列式，叫做矩阵的行列式，记作detA 当|A|&#x3D;0时方阵是奇异的，|A|!&#x3D;0 称为非奇异的。</p><h2 id="3-可逆矩阵"><a href="#3-可逆矩阵" class="headerlink" title="3.可逆矩阵"></a><strong>3.可逆矩阵</strong></h2><p>可逆矩阵的定义：方阵A，存在B，AB&#x3D;BA&#x3D;E，则称A是可逆矩阵且B是A的逆矩阵，否则不可逆。矩阵是否可逆决定了他对应的矩阵方程是否有解。以下是一些常见的可逆矩阵的性质。</p><div>    <img src='https://s1.ax1x.com/2023/07/14/pC45UFf.jpg' height='300px' style='border: solid #c3c3c2;border-radius: 6px;'>    <h4 style='text-align: center;color: #403f3d;font-family:kaiti'>图1 可逆的性质</h4></div><p>相应的在求解矩阵方程中，如果未知数矩阵的左右两边的系数矩阵是可逆的，那么利用可逆矩阵的性质我们可以对未知数矩阵进行消参，从而实现方程组的求解。</p><h2 id="2-分块矩阵"><a href="#2-分块矩阵" class="headerlink" title="2.分块矩阵"></a><strong>2.分块矩阵</strong></h2><p>顾名思义，分块矩阵就是对矩阵进行分块，从而分割成更小的矩阵。特别的，如果你对矩阵按照每一行每一列的方式进行分块的话，那么就称为行分块和列分块。那分块矩阵有什么用呢？</p><p>其实最大的用途就是我们可以根据特殊矩阵的性质将大的矩阵分解成小的矩阵简化计算，当A B是相同分发的分块对角阵时，它有着如下一些性质：</p><div>    <img src="https://s1.ax1x.com/2023/07/14/pC450Sg.jpg" height='300px' style='border: solid #c3c3c2;border-radius: 6px;'>    <h4 style='text-align: center;color: #403f3d;font-family:kaiti'>图1 可逆的性质</h4></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数学基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 线性代数 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>线性代数-chapter1行列式</title>
+      <link href="/2023/07/11/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0-chapter1%E8%A1%8C%E5%88%97%E5%BC%8F/"/>
+      <url>/2023/07/11/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0-chapter1%E8%A1%8C%E5%88%97%E5%BC%8F/</url>
+      
+        <content type="html"><![CDATA[<p>这一章我们主要学习线性代数最基础的一个概念——行列式，它的作用在线性代数中不容小觑。他很简洁，但是正是因为它的简洁使得线性方程组的计算尤为简单明了。我们会从它的基本定义和作用进行分析，最后讲解一个重要的性质——克拉默法则作为本章的收尾。</p><h1 id="第一章-行列式"><a href="#第一章-行列式" class="headerlink" title="第一章 行列式"></a>第一章 行列式</h1><h2 id="1-什么是行列式"><a href="#1-什么是行列式" class="headerlink" title="1.什么是行列式"></a><strong>1.什么是行列式</strong></h2><p>在线性代数中，我们把n元方程组的系数抽象出来的一个用 “||”符号包裹着的n列数列称为行列式。行列式在线性代数的计算过程中发挥着重要的作用，他清晰的从方程组抽象出 简洁的“数据”，从而直观的进行计算和分析。这里的阶数是指未知数的个数。</p><p>PS：值得注意的是，行列式其实是“方行列式”，即行数和列数是相等的，总的个数为n^2。</p><h2 id="2-行列式的概念定义"><a href="#2-行列式的概念定义" class="headerlink" title="2.行列式的概念定义"></a><strong>2.行列式的概念定义</strong></h2><p>行列式有一个非常神奇的性质，如果从算法的角度去理解的话，就是分而治之。（实际问题中，我们手算的极限是三阶行列式，真正去那计算机解决行列式的计算，我认为递归是一种很好的方式，在排除复杂度分析的情况下。）当你展开一个三阶行列式，你会发现可以用一行或者一列的系数乘以除了这个数所在行列的二阶行列式的乘积。如果你愿意动手去算一下，你会发现事实确实如此，因此行列式的概念定义为：</p><div>    <img src="https://s1.ax1x.com/2023/07/14/pC45Ze1.jpg" height='300px' style='border: solid #c3c3c2;border-radius: 6px;'>    <h4 style='text-align: center;color: #403f3d;font-family:kaiti'>图1 行列式的定义</h4></div><p>对于余子式和代数余子式，你可以从他的名字直观地理解：余子式，就是除了他本身所在行列余下的式子，而代数余子式则是带有代数符号的余子式，而真正的行列式的展开是<strong>代数余子式</strong>参与运算的，注意这一点。</p><h2 id="3-行列式的性质"><a href="#3-行列式的性质" class="headerlink" title="3.行列式的性质"></a><strong>3.行列式的性质</strong></h2><p>接下来我们会介绍一些行列式最基本的性质，这些性质很基础使我们日后分析计算的基石：</p><ul><li>性质1：转置行列式相等</li></ul><div>    <img src="https://s1.ax1x.com/2023/07/14/pC45edx.jpg" height='300px' style='border: solid #c3c3c2;border-radius: 6px;'>    <h4 style='text-align: center;color: #403f3d;font-family:kaiti'>图2 转置相等证明</h4></div><p>其实从行列式的概念性质我们就可以知道，转置对于代数余子式只改变的加法的交换顺序，在这里我们只考虑对[1,2,3]进行展开（读者考虑一下为什么我们证明时候只考虑一种特殊的展开方式？），而同样的二阶的行列式转置只改变了减数（bc）乘法的交换顺序，因此三阶行列式的转换是等价的。同样的可以用归纳法去总结n阶行列式的转置不变性。</p><ul><li><p>性质2：某一行或某一列的公因子可提到行列式外面，反之亦然<br>这个其实很好理解，当你以这一行含有k的未知数的行列式去展开就会发现代数余子式的每一项都多了一个k，整体提出来便是原来行列式的k倍。</p></li><li><p>性质3：行列式交换，行列式变号。</p></li><li><p>性质4：某一行是两个元素之和，可以拆成两个行列式的之和。<br>还是从定义的角度去拆解，类似性质2</p></li><li><p><strong>性质5</strong>：某一行（列）乘以k加到另外一行（列），值不变（线性变化）</p></li><li><p><strong>性质6</strong>：某一行（列）元素和另外一行（列）元素的代数余子式乘积之和为0（经常用来计算）</p></li><li><p>性质7：范德蒙行列式</p></li></ul><div>    <img src="https://s1.ax1x.com/2023/07/14/pC45ELR.jpg" height='300px' style='border: solid #c3c3c2;border-radius: 6px;'>    <h4 style='text-align: center;color: #403f3d;font-family:kaiti'>图2 转置相等证明</h4></div><ul><li>性质8：（克拉默法则）如果线性方程组的系数行列式不为0，那么方程组有唯一解。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数学基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 线性代数 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>模板</title>
+      <link href="/2023/07/11/template/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF/"/>
+      <url>/2023/07/11/template/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1-图片模板"><a href="#1-图片模板" class="headerlink" title="1.图片模板"></a>1.图片模板</h3><div  style="text-align: center; width: auto;">    <img src='https://raw.githubusercontent.com/Gmorning730/BlogImage/main/img/爷爷的狗2.png' height='400px' style='border: solid #c3c3c2;border-radius: 6px;margin: 0 auto'>    <h4 style='text-align: center;color: #403f3d;font-family:kaiti'>图1 爷爷的狗子们</h4></div> <h3 id="2-音乐模板"><a href="#2-音乐模板" class="headerlink" title="2.音乐模板"></a>2.音乐模板</h3><div style="background-color: #c5e8ed; border: 2px solid black; border-radious:3px">    <font color=#252525 size=6 face="??">section1: ???????</font></div><h3 id="3-首行缩进模板"><a href="#3-首行缩进模板" class="headerlink" title="3.首行缩进模板"></a>3.首行缩进模板</h3><head><style type="text/css">p {text-indent: 2em}</style></head>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>vscode设置自动保存功能</title>
+      <link href="/2023/07/11/vscode%E5%B8%B8%E7%94%A8%E7%9A%84%E5%8A%9F%E8%83%BD%E8%AE%BE%E7%BD%AE/"/>
+      <url>/2023/07/11/vscode%E5%B8%B8%E7%94%A8%E7%9A%84%E5%8A%9F%E8%83%BD%E8%AE%BE%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<h3 id="设置vscode自动保存功能"><a href="#设置vscode自动保存功能" class="headerlink" title="设置vscode自动保存功能"></a>设置vscode自动保存功能</h3><p><a href="https://blog.csdn.net/qq_70703397/article/details/129281455">转载</a></p><ol><li>shift + ctrl + p快速打开设置</li><li>搜索Auto Save</li><li>根据功能选择相应的实现方式，我选择的是在焦点变化时保存（当你鼠标换到屏幕内的另一个地方）<div> <img src='save.png' height='300px' style='border: solid #c3c3c2;border-radius: 5px;'> <h4 style='text-align: center;color: #403f3d'>图1 设置自动保存方式</h4></div></li></ol><h3 id="设置vscode终端使用默认cmd"><a href="#设置vscode终端使用默认cmd" class="headerlink" title="设置vscode终端使用默认cmd"></a>设置vscode终端使用默认cmd</h3><p><a href="https://blog.csdn.net/shoppingend/article/details/118700194">转载</a></p><h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 经验技巧 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>分布式计算系统-chapter1绪论</title>
+      <link href="/2023/07/09/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-chapter1%E7%BB%AA%E8%AE%BA/"/>
+      <url>/2023/07/09/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-chapter1%E7%BB%AA%E8%AE%BA/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1-分布式系统"><a href="#1-分布式系统" class="headerlink" title="1.分布式系统"></a>1.分布式系统</h3><h4 id="1-1-分布式系统的概念"><a href="#1-1-分布式系统的概念" class="headerlink" title="1.1 分布式系统的概念"></a>1.1 分布式系统的概念</h4><p>定义：分布式系统是若干独立计算机的集合。<br>理解：</p><ul><li>若干计算机的集合，两台计算机的集合是分布式系统吗？再特殊一点，一台呢？</li><li>如何理解独立？使用的各自的主机的计算机吗？网吧的不同电脑可以运行不同的游戏程序，任意两台电脑是独立的吗？</li><li>对计算机的理解,是我们日常所用到的计算机吗？需要有着相同的操作系统吗？如果不同会怎么样？</li></ul><h4 id="1-1-2-分布式系统的范围"><a href="#1-1-2-分布式系统的范围" class="headerlink" title="1.1.2 分布式系统的范围"></a>1.1.2 分布式系统的范围</h4><ul><li><p>分布式计算系统</p><ul><li>集群计算：同一机构不同算力的集合，可用分配和利用。例如，学校的电脑通过路由器和交换机连接，可提供较强的计算力。</li><li>网格计算：不同机构之间算力的集合。例如，不同学校之间的算力资源的协调与分配。</li><li>云计算：具有相当大数量的算力的公司和机构出现算力冗余时，以租赁的方式将额外的算力资源进行出租。（相当于我们购买阿里华为的服务器那样？）</li></ul></li><li><p>分布式信息系统</p><ul><li>事务的处理</li><li>企业应用的集成</li></ul></li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 数据科学与工程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>线性代数的本质</title>
+      <link href="/2023/07/05/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9A%84%E6%9C%AC%E8%B4%A8-chapter1/"/>
+      <url>/2023/07/05/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9A%84%E6%9C%AC%E8%B4%A8-chapter1/</url>
+      
+        <content type="html"><![CDATA[<p>欢迎来到线性代数的世界，在这里我会分享我的学习心得，一同探讨线性代数的交流与应用。课程来源 YouTube 博主 3Blue1Brown 的制作课程：<a href="https://www.youtube.com/playlist?list=PLj2xWy-jIS7TgnCluPmIxaq9wNODGPINs">Essence of linear algebra</a>，通过直观生动的方式用动画讲述线性代数的本质，话不多说，我们一起开始吧！</p><h2 id="第一章节"><a href="#第一章节" class="headerlink" title="第一章节"></a>第一章节</h2><h3 id="1-向量的定义"><a href="#1-向量的定义" class="headerlink" title="1.向量的定义"></a>1.向量的定义</h3><p>不同的人们有着不同的观点：</p><ul><li><p>物理学家认为他们是具有大小和方向的箭头，主要保持这两个属性一致，那么这个箭头无论移动哪里都是一样的向量；</p></li><li><p>计算机科学家认为向量拥有不同维度列表，列表的每一行都代表着不同的维度，这样的定义使得他们可以在分析和建模更好的把握这个世界。</p></li><li><p>数学家的理解是这两个概念的综合：向量存在任何可以相加和相乘的含义都是向量。</p></li></ul><h3 id="2-向量的表示"><a href="#2-向量的表示" class="headerlink" title="2.向量的表示"></a>2.向量的表示</h3><p>向量可以用带有长度的箭头和包含相应维度的列表来表示。在线性代数中，向量被定义为从起点开始，这和物理学家的认识有些不同。在描述一个向量时候，我们通常用第一个维度描述沿着x轴走了多少，第二个维度沿着y轴走了多少</p><h3 id="3-向量运算"><a href="#3-向量运算" class="headerlink" title="3.向量运算"></a>3.向量运算</h3><ul><li><p>向量加法</p><div >    <img src='https://s1.ax1x.com/2023/07/13/pChja1x.png' height='300px' style='border: solid #c3c3c2;border-radius: 5px;'>    <h4 style='text-align: center;color:##403f3d'>图2 向量数乘的表示</h4></div><p>向量的加法用 ”行走的案例“ 来说明的话，表示你起点沿着两个向量行走的，最终和你按照这两个向量的和行走到达的目的地相同。</p></li><li><p>向量数乘</p><div >    <img src='https://s1.ax1x.com/2023/07/13/pChjU91.png' height='300px' style='border: solid #c3c3c2;border-radius: 5px;'>    <h4 style='text-align: center;color: #403f3d'>图2 向量数乘的表示</h4></div><p>向量的数乘可以理解为沿着原来向量的方向来回移动，对向量的线性扩张。</p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数学基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 线性代数 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>hexo的常见操作</title>
+      <link href="/2023/07/02/Hexo%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/"/>
+      <url>/2023/07/02/Hexo%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/</url>
+      
+        <content type="html"><![CDATA[<p><strong>Hexo是一个快速、简洁且高效的博客框架，利用Hexo可以很方便的搭建属于自己的个人博客。</strong> 之前总是挤不出时间（借口）这次终于有机会（<del>作业</del>）搭建一个属于自己的博客了。虽然搭建的过沉重遇到了各种各样的问题，但是客服重重困难之后看到自己的<code>最终的</code>的博客还是由衷的开心 (smile) 。在这里对自己在搭建过程中遇到的一些问题做一个简要的总结，希望可以帮到一些还在驻足观望的朋友（拉上船）<i class="iconfont icon-word"></i></p><h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="1-配置hexo"><a href="#1-配置hexo" class="headerlink" title="1 配置hexo"></a>1 配置hexo</h3><ol><li><p>首先要安装hexo，在安装之前，要保证已经安装了node.js + npm，详细的安装教程见 <a href="https://hexo.io/zh-cn/docs/">Hexo官方教程文档</a></p></li><li><p>第二步安装基本插件，这一过程中你需要安装最基本的插件才能完成相应的部署，在这个阶段我只安装了<code>hexo-deployer-git</code>这个插件，有了它才能使用<code>hexo deploy</code>将你的本地文件推送到github page。<br>安装命令：</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></li></ol><h3 id="2-选择主题："><a href="#2-选择主题：" class="headerlink" title="2 选择主题："></a>2 选择主题：</h3><p>你个好看的主题是你博客的灵魂（坚定），所以选择自己喜欢的主题才能 <del>勾引</del> 吸引更多的游客；其次，自己看的心旷神怡是坚持写作的动力！</p><p>主题的话我个人推荐下面两个主题：</p><ul><li>NexT<br>NexT这个主题主打两个字：<code>简洁，简洁，还是***的简洁</code> 很商务的那种，适合沉稳冷静的人</li><li>Butterfly<br>Butterfly <font size=5 face='微软雅黑' weight=30>恰 恰 相 反</font></li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NexT: npm install hexo-theme-next</span><br></pre></td></tr></table></figure><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Butterfly: git clone -b master https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly</span><br></pre></td></tr></table></figure><p>安装插件：</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:Gmorning730/Gmorning730.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-renderer-pug hexo-renderer-stylus --save</span><br><span class="line">本地图片上传插件：</span><br><span class="line">npm install hexo-asset-image --save</span><br><span class="line">音乐插件：</span><br><span class="line">hexo-tag-aplayer</span><br></pre></td></tr></table></figure><p>部署配置：</p><p>重启博客：</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 安装教程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>转折</title>
+      <link href="/2021/09/01/%E8%BD%AC%E6%8A%98/"/>
+      <url>/2021/09/01/%E8%BD%AC%E6%8A%98/</url>
+      
+        <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="好像....不是这把" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">  <script id="hbeData" type="hbeData" data-hmacdigest="09e9b980027068c15f75eac82c19a5cb78373e32af4e21ae9054fd4e02255958">aad056d760d37af61e9208b0dbddcb0c81529d75340a41f8b8c7507cbf1bf986400925b01ebd94e44a8b119ea2a1309ebe3952861fe619c4fbc476feaaff1d69b04a0707af01d31b598667ca94040e1cb88d221915fefb8d6f2da4d9ec333c8cac2c2e1c1efae422976d0131b23f4067a5ba10d8b09ee12ca820120616c31a8c91e8e3f49452c555025befca13d2bca347b405f2a74846cc053088802e4083563fd309f805b5280e239ab219aad4acb5668fb9a8167fa48cff549e157c6b70b2f225dc6d0c425cd67a9fd574890f909efb943a398f1733068e15fd4df3cd8bd9f0e299f4ac78833ee98bd6000bc4da74cb63a712600d5a9b4d4bdb94b6a9a789843bf8471c9cccf2ad14b10384b3775a9becdd86bbb43900e3697db9ef5eb5f8a4540ab78be4a322f5f6608a39055285feb0773103038b2aa0ceceecdc4d7430fc20b517ef874924b9136fad28b45973140ce5ff74704016498429529904bf609a32d1f508e152ccde2110bbffc9e1d44f6eb21a296335c2617cb7a4ab8b60684d8f16cc9263a1d9558b35c2f9d5907fce15b7ded7981eb6046c680024c1af26e8cdc31a7aae057265fbea0b5ea988b61ecc89fcfd95bdaf2504dd8a0e3ea5163315e6b94d6e95e4789b6c77282750d8cf357a1a1992695eb629adc7c9c2ed0c1936809c9b64540881479dc0a15595de04831a04ca04264830b7f1e934936ee869780465ffae6be2b449bda457985b02ad8daffb905b2f569d7e1e0a9202df134d1b30fc2ff09ad87ce2347615db9aba9024545c42316affc0cef6131711dd6101d8246e1fb79667792edc399b182218bde2a391306a85c7f3fe88d04423130a9e3aac344d462da1261e385268a99ce6b1dbd9da1f8aa46fcd27f8e9a7f8d67883703df69dad38002203b2245b063e19fdfaeb5147773fa70273be56f0b5e9e14470fcf2711e9c2e10150c02aa87133f44d56f2ad63f7a9457a26968fa97cbd921b5fa87a2496ee64e38cba44099290b5ce8af505ba23207187fad6e0df9c87c840de905d32a0c2abbd80d811b529f5e47563fc9431ae93da8077ecd6851f10d7f1eb48eb184e97ade62fc5d77e33638ab6841b88782c650a4565785171946e9dc67ff00508bc4288fa8bcb9a012b42debb53ae7f5d5f1348530c1dc17ca3030677bad6381092d8811e928ff491644a0e31e9ac93156ded2804ffc35b7a44d559744bbc60d540f486b11aa2c9734000d2c14a308ca69956e6eb81217b5aa631b99e3cf4b8eb0f052a18713e1644ec99c2398385dd631bf1ccc4ac41cea03172649955bc78c7e2fbfca743ff5b905421395532e6d9f29f18dd2a26533bd3a431ab3b20038e9b01eb77e0006999a6ed481c586a327ef892826d4ebcee37af5cf0720281158e06d63bcb93c3471f4af7768b0a8ebc8cab09bc88753265dc7f5bceb3c3964d126d47b6af240281230019363638c018128fe0957a7a52b5e7a9a74fc5d88b115962111bb733b341dbe8c8120ea97dacbd0dfd9e43862533b4a3a5ceac432c2dc30291ce3689384f21eb3d3b5e2646079ddd88cb89ee9695d9c42797381afba2290bdc726458bd95ae8cb1bce7ff4a3524d5ab2ba5bd35e677509ec5082f83ebadd1b3ef7764b90f48ecddfe076b87403d555fcdb1ea040db8614c7fb3ae4313ee5f4fb3da4cfc8bdc775ded9d76e54c957fa7c4c6716853e0786b110a34b9d4fc0a4174ace0e462378d68f17632d0ee4af2ceede7b311a500d02ba87f97365fe57b4271a5f76f1838b4e678a7988157b2c8f7f4164e77f4beb65b4806efde8401ddc6749f500909e309ad162c3c016f737920ce5ce880a31e8f124e1021fcd6df4bc4c44b5b85773ad5a2edd0d0827d3023559cc2a20d3b74e9321b59fefb41e696fa71c7af544fdaa9ba864655bf511b6daba9de99776c402f69e83b249f3a6243e6a3f23c37b046fc9560a0e7aae141ef317e54057deeef6a32a74eeb180057fdd0bde0f7f3a3e35ead9ddcc94e8ab3fe139f21d88b3c51d7bc7bcf9501043a3d135a72aa3a8cb5802a7b9bbad42fd58877a84e61af63b543083432502f5a9053a5f46425bc328905d71b86e0d72b251fbbc0cae4367651a6c63f6554a895c922521c17a3674731e4fb28e5efbbcb826785b3e1758c86beb29336e79c70f5442bfc694388cac4c60e5afd560f964d9c1f81c878bc18a2df490917bf2be591430a124e0cc4b3725208ba0b0db7281efce9e0422918c8491fc45feb6b3350795f098af5df8a00f360a1aab829fc9821f1682a60f186459b341818af0066e7cb6b40294154c379d61024095a640534f0b010f12f024f015f206d5c1b59c767fedf17d0a3a91bdeff51a8e77eb33c025021d7e87fa1aabd5d5750d2cb609762714fff10c7f9caeca6cb5f94515b780da7d22cc981b7bae83f13288bc6298c7ab2bac7d6e00d2e4c9e21de5f28415efc993a88174fa79cf7457716e72b93cef01907f366dbd50f496848d63d82368b341e86dc07bb78545a1b5a167f0d40431ea2b1003bed2ac555783935dd333a8f2a82c2baad7e13a9fae4d233edc924891d485da72a590a1344dad61fb6853551a66ab63b785f730c9e84bf9cf8f1fc3dd0dcd2ba4d4192be0c99b4b7609eea2bfd38b8dcfedd7f970810785b195b661bb3b2b43397912f9eaae46d4d61ba16f40cabd5bc13c35f8a2bd6c7d314f28d6f7204ee0461704eb1a247b17718396b88822865b1bfd1960bc22d07dfa75a840119f294ea309a3c78e86e4c29f15c932856d75ba1b71d3e46eea6b267d2cd033c3c794fd6cf53262d8c4359e847aa788a94238dc3f42f15efb1dcf4a3797736cb43d7b11645447972bf16fa35a94ba7a45c9518ee08a49cc45e6c8afdf887f8b4efa16a7ce03e81697b68d0ef4cb28252b2f41799707d8304d6eeb85b712a5e34baf6727b3a9ad6c13cead233323e2a7c5b1b9d006a8e964239b8ba34ead507599a29540e1166e02c3585452d039d68f43d15d13ff33748a6a63df8380a17ca50991b7f0371dc0690361a52b6c4a18052ff539ebfaa853bfbda015767026d5c7bb57db6028eaebeea0e52e8814b8ae99cf35f85a794bf7cca2dd091bcc7f0cbd9754b668b560bb2ca553bbb5edce2fb5abb810a2e073136c42d86da368d8c3e0157723d6b212543ec713de5503a8c887589c17e2b9289701df6215576e2bdd4bbcf65e3eba3090483f2a3f0ca09aedb10e0db97aab3c3eb17cc59cb8a6b1cee19783cef25d1f5e41ae11c7690b3d2ec37f2f65fcbdf5977b0bee19cabeb14d34ef313f28c3548a692d0ad7b7cadace1d23789f5dd858395ccb1e8629d8f2397f96ecc1315c3a6ffe5472e54e2682abf4df42089bab1bf1af8319df9de661e9fde0fac08bbcaa2386e248864068114df41f26b8518daa1e4cdf79fd0942d91550893e4f5b15625a0998c7c3b3d0594054832ec57144ec12d4bf09b8683b55892c7093484e455d96fa962b1adf5c88ddb1ea36e7a4f66feea2508c200863de0a6b5bc019d3cee0c3bc53a9c4b39ed69876400661f0980ce11f8d5e4df369ba5faabfe9f14fe70a640dcaf42a74b8af22e6957284f04315d779d78cac7fe83775fe377261b9fed54fc11ca2b9f47a7b47b38d4d9b6391a405191436546af47a5cbc474528ef5dfda06310fe32ffc93a565c32bcf7b71f76c6c635bc94be90d1b5131f1c58a1bf333e3796881d8ef18ee6f9e59fdccd76f345629a3a6e900da2f9151b1e3f69cc5fbda3cd358f32c202e0178a718774223ae27cf3ceecc7f60fb650c92b9381dfccdb452e85b230e64fd99d2341387f1677b693603255c7d3ecbed62561b324300555c3d9188efd1990203df32c91ce2d24e08c077333b1c36dbd788c1ec4786588329b9d865f72f8c9e14dc12ef073c957c9391b72603e4720261ef1ce3fc216b71692c21b3ac79b196bffda551ab63c5297b6f60cb753cff5b8e3f3820f8a4cea7280e8fb82566b5c3d5cfe98ccb9a0bd736d18a66277581ff87d5ff17fa900efc4c95920db05e9dd7580312b8b380094abe730a8bf999a74284cd57da0451b15cbc1b1872271e47602a767db107df0a564af4673574a6c16644fdb453bc7d8d8e31dce756836d9a61d6fef5855d06ca13bd75bb8867f581695af49ac335ac6f82057daa89eff97c97aabadee05f3a8330795209c81b2de11a0df179e3d5079eae85a37de4631273b3723f60fc75b2047f5d926c099d00866f1e5d8d2b7b21298f9783ae2bb88295b781e690788ff56eefdfcbe5b1687318c9ea9265f6b88668d2c2f0e228d6430c7a1bac0bb09e4cf2979a3e4d4eae8625285e82bd149f09078b91c9c89682bdcb06fcf4ae8f114c5e403220c78b25f5152643761f946386526d39f3b9ff400fe734ec058fc0e603171ce0df8b1ea83b3f3f6ba232c03d147b833217f95e738575c347e5e42f7bcdc05e99f67dcbf354bf91f853a4d48be0dfd123486764765377be63c746841dd3339e6479c13bca73485cfb068284c394b5b706d8d443dd08400f850c81477351a4fe063c012f506dd42e604573208d45a8f33e2339c0d6a9a5176adf6b17b74c7cabdcc0d2103455dc9eaacb5f953bd9020ede991dec24a41d1e1a3dd4b5a284fb3e9db51823a24e0fec9939ee13c5e29117d3d83e0613e511272989d8aa5f8ccdff07e44e0a4df9dd5a99157f7100ad7a0454713cb02dafe0a816bfd63882cb103fbb185c6befbda8d116d51ee5e0a6b59e4c69560a8d7ce8687e73ca198364e49bdddf8d4c90728b6eed8c656a1446d44e299c8a624af6b637beb68ec2ed87f4dffa7b929b7931e72e79ba4f2a2d929c341f1065cbf2ec92f74107e650efb9516739f6131cb4a91d5cc63bc8aa846a322bd40e3951a72c6ae4920dee41b63ea55371cc3cc8afbe62e1545c8a60195adc56f487501f18b02b021f65a0d023b06adaf40c03a3d9f783150eef4e367408531c3d0636d32ae138c3f38fbc5105ac78a429beeb2c6384a72abccdfcc28956accfbb6dd1f1eaf2d8f1129e68ebf166b1d73212637a1930f56b50f97dabd84e44c0eaf2c0c8d429616981de7bb85d7d287324bb028eb3190dd1bfd502caded9ec7e5cce81f9cbe19744ef223fc1b0ebfd8805625dc22213afa7e11ac837259cba067b1a662a30c2b160c291598a244fed0c31d6dbf5a97231319af22eaab63c19e018237579b679f28d5a8f3f81710b68121395897caffb9a5359e2213a0078ed8365afa87a4c35eed2dafcb505f90c8674a1aad8490c1d710eba7c3ebb8bdfe1cb2128f742182af986f7b31eacd69439085b18aca911e4bdcc1b7375f3ab258af42310ce83beb122abc0cb842eac747fb808a137fcb5b9c243af65ef03c4f88f4168a44e5c936bd3097eebb4434ba63d29600837a6faaaf7e3c82bee9399f8c63f83e5307da05cbcb85dd6399235907dea35d68be1742a954f1785ac2d23209f073f48525cd10d481b4b284cd6cd407200518af8ded32922fff3dffb13770f22606cd7e5c4f313b9111b6b8dec811b7820f2a0576cad737160d12cd76c98c34c710ab41fd55df46e3b82ea70074fcc47fe503addcfc12feef353e5b31e91fe0133e448983048fb7bc23370be9d447340c573d0bca4707f16a0f559f3c9cbc4bcaa6878e6b842e2a52a3e6679a5fb9270397415e8d1ae1dedb8980ccba19950f708a46f37735371e333da5f96b95181aae413259c92d53af55ac3c5bd7b30d75c740c74351b8bc322df992133cba9593c83082459937157c207612f7b32004008e59313f3203d514cc46145175dfee61b9aa2eb07bca9fb84a802b921690f002fc581f43a28be46eae18139a4fdfb72a71f0e6380abb4eae65edd7f9fa8e9180b245752d2b48cc72d6962e79b02b8ef90dee2e0a7de753d63870aba78aea4ec6e07e71de7afed076891c5ce481a92ac34e3018c9b88d1c554f303824e123aaaedb4ec5e32a1be8960d2f044cd7e49a7ee661b049122d3446248a3d0c99281b59587f06f2d6e0bcfba5577b19453d764e8156b6fb6a35fe8bb336cf6f001e625866c3d6621fa1dc040a734a6981a533b7ee321c7b5151dab5a5377d3ddb877540e43145596d367fafb7dcb6e6e6fece121eea3536e716e2e5a2a873e901a866d6d8c393f1f5bae1e96efddcbb285dccee30980a7dc258a9028c2f4a023735e65bfa05d379cb19af32338597524dd4a98b8d788a5df3cadce1791724faceb4ebe9b7f7431f40392eec3af28024ab8783c724e4bff5f186a01490b2f8244c3b58c69bbff71b156735ccb276027654e5392b27e9c04b08e65fbe96935a414fce8db856cdd9aba1f8e37db453bffd69a15f1e7c867a62b1653f1e43de71d737537f05122e9a3ee77af687317df2606a311dbfd9523798679d80f045a5027307a132279da18c391cad4deaf9d762ff2e1fe31d2a769c9988d1860c2c107afb7e76241aa4df77499ff23138e49d3839104f13914e43e98ef4f5cf6e29db78a6e1e5994b42624f4024638ac25d4d16b7778e900a655c8c0ebfea209b9123f188f39904633c2638af35687815abfbef2bf9c2f20ce647599f98f15ffc913c5a4523ed74f70932648781c8bb91b9d9c18bf0e3911524f9b710e0edbdc819b7b5a7120b702745339c96679b5a1be458efd63c4601db8fb3a8771dbc36e7a8009e2aa1cf3665d2b105c67b61d8d964377b6a6e78cc4ef0fd73823c96750ece7b510b630c0ad24eed061518c8a0f4bf810750c600e0677707de3a67c04aa038c1e925944dbe6ae4ef94e3f584c69ba9ff2388aa6b2551f1adbd6fd7b4387c9635f8cf502ae274b00ce73028aa078a06d108f12de17c55fe47d9158dd7c73921e690814d33b1f998cf5b2554f102246aefcc47d3a3fdd08c3ece9fedf6f34aafc841a3c7c2e4b4f0da3f688ee9d92fe44ca4c233ad8ed99a3b55335e8cc8db7a3d8ebc985b25a954b06a2c45e7d8ce09e66e4e3f3bb270c9d4d130ef7cba3005564ae386b7b6d157e1712ca1efb007112500a70c44860bedfdf17ecfce2feaf68c2585c79ae348ea7bbfea97cf05021186bab3a6eb4981cee6220d374110d77a90ce41efe74af239a13a8ddbea5b3d01de05211ef616dfbb3cb080970e6dcd0890629ec36a3f8f5a854d71cf39e42e073f99f8b7fe7611ce415c958d649f09a1d56ecc86c07df0c851f383742040e92f6941766ab392ce5de11d2f4fe3cd857b2acc745fdb62f4e6c9eedd8045dedc6b6a736c92d8e944b7520e26432b17bb88cf3d24627f51972aefc8a397aa96b0c8fbb82dca335961f0d2729cd189725c97ac4e42fa2d50c7a612caf1b177bbb7b21e1cc4c0c38d3801af198173801f7be327437a12b628270e22043b0271f39c9b3d605dfe8547932725c39e656d780ab7f0770439ac15516df4bfdd5b94df2bb1a3d2576b0410e7927a8f1b4be31ed14052b1d091bf195f9e05f75396a9ff41cff7386681b0de10a19ce9add49fc29bce2b5a98058f57994acf03cd17f7c029fc13ef9f78ec1312265126afe28d20574822972d063f5ca42778b957dd5c9c5e129467d467401398106132403f27f00a3dd30a0a80f90103642cc6c1d5266270d1c7aaa2270c003b253cc5839d0f4f5bad759745696e185f5acca273c61148f583091f6ec431a1fab6793f7284cbbfce3e9a262a97897673b3758109c3d1022342de01ca02e64db66711bcb18565e02f771b029bca8c9b3b857197993d79dcf6dc7af374f2422b47b154b0da7f43d0a5377f4a707157e3aab065a3eb16f4b090e00fd5f6954f9268bd62fa66b0f2fa8e5757bec66bcdb39b7c2b891eb4a747ba2c7c84f4052aae48e6780e60ebe683f84544bb76dec0e74cff5424daa77a51033d77dac6be7da1f7d907278f6c2874b8bbb2d7a193caaecfdc8bf9f8d3a2097df84d555ea7bed6af1721c26827323b7a226cd55ab0b7c25911132631c0b3d72017e1c1e5f0f2ecaca3d81d08ee267d03e1e9</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-xray">      <input class="hbe hbe-input-field hbe-input-field-xray" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-xray" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-xray">你需要有叩开我心门的钥匙</span>      </label>      <svg class="hbe hbe-graphic hbe-graphic-xray" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">        <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>        <path d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0"></path>      </svg>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 日记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>一切仿佛开始</title>
+      <link href="/2021/04/28/%E4%B8%80%E5%88%87%E4%BB%BF%E4%BD%9B%E5%BC%80%E5%A7%8B/"/>
+      <url>/2021/04/28/%E4%B8%80%E5%88%87%E4%BB%BF%E4%BD%9B%E5%BC%80%E5%A7%8B/</url>
+      
+        <content type="html"><![CDATA[<p>大概过了多久，也记不清了，再次拾起笔来写一点东西的感觉仿佛历历在目。因为自身的原因，高中也曾陆陆续续的写过一点零零碎碎的东西，似乎从来没有坚持到底。这个习惯我还是想去坚持下来，此刻的我仿佛若干年后的自己，看到曾经幼稚的言论那般好笑，对时间的回忆，对归去的追忆，对美好的记忆。每每看到，皆为美满。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 日记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>选择</title>
+      <link href="/2021/01/01/%E9%80%89%E6%8B%A9/"/>
+      <url>/2021/01/01/%E9%80%89%E6%8B%A9/</url>
+      
+        <content type="html"><![CDATA[<p>那一刻，我真的知道什么叫别无选择，回想过去的自己，无论多么艰难也挺过来了，我曾无数次告诉自己，只要尽力了，我不敢去浪费一分一秒，别人吵的时候，我在学习，别人玩的时候，我在学习，别人吃饭的时候，我会比别人抢出更多的时间，我知道自己笨，所以我会花更多的时间去学习别人轻而易举就掌握了的东西。所以我告诉自己，无论结果怎么样，我都无所谓，可是每次看到成绩下来的时候，还是很失落，很难过。不聪明的人难道注定要被淘汰吗？我该何去何从？</p><head>    <style type="text/css">        p {text-indent: 2em}    </style></head>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 日记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>给五年后的自己</title>
+      <link href="/2020/02/19/%E7%BB%99%E4%BA%94%E5%B9%B4%E5%90%8E%E7%9A%84%E8%87%AA%E5%B7%B1/"/>
+      <url>/2020/02/19/%E7%BB%99%E4%BA%94%E5%B9%B4%E5%90%8E%E7%9A%84%E8%87%AA%E5%B7%B1/</url>
+      
+        <content type="html"><![CDATA[<p>亲爱的自己：</p><p>你好</p><p>当你再次打开这封信，你也会有一份憧憬吧,五年后的自己会是什么样子呢？瘦了吗？在自己想去的地方吗？变成自己想要的模样了吗？</p><div  style="text-align: center; width: auto;">    <img src='https://raw.githubusercontent.com/Gmorning730/BlogImage/main/img/给未来的自己.jpeg' height='400px' style='border: solid #c3c3c2;border-radius: 6px;margin: 0 auto'>    <h4 style='text-align: center;color: #403f3d;font-family:kaiti'>给未来的自己</h4></div><head>    <style type="text/css">        p {text-indent: 2em}    </style></head>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 日记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>

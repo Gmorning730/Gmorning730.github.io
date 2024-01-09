@@ -1,0 +1,77 @@
+@font-face {
+  font-family: "iconfont";
+  /* Project id 4160346 */
+  /* Color fonts */
+  src:
+    url('//at.alicdn.com/t/c/font_4160346_1jismyp94x3.woff2?t=1689069106084') format('woff2'),
+    url('//at.alicdn.com/t/c/font_4160346_1jismyp94x3.woff?t=1689069106084') format('woff'),
+    url('//at.alicdn.com/t/c/font_4160346_1jismyp94x3.ttf?t=1689069106084') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-yumi:before {
+  content: "\e668";
+}
+
+.icon-xls:before {
+  content: "\e7b5";
+}
+
+.icon-ppt:before {
+  content: "\e7b7";
+}
+
+.icon-word:before {
+  content: "\e7b8";
+}
+
+.icon-zip:before {
+  content: "\e7b9";
+}
+
+.icon-ningmeng:before {
+  content: "\e7b0";
+}
+
+.icon-biaoqian:before {
+  content: "\e742";
+}
+
+.icon-dongwu:before {
+  content: "\e60b";
+}
+
+.icon-naicha:before {
+  content: "\e7b6";
+}
+
+.icon-compass:before {
+  content: "\e65a";
+}
+
+.icon-bojuelvpai-bieshu:before {
+  content: "\e879";
+}
+
+.icon-mianxinghaidao:before {
+  content: "\e612";
+}
+
+.icon-fanqie:before {
+  content: "\e654";
+}
+
+.icon-shiliu:before {
+  content: "\e7fe";
+}
+
+.icon-mianxinglvhangriji:before {
+  content: "\e71f";
+}
