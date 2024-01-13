@@ -4,6 +4,44 @@
   
     
     <entry>
+      <title>Hello，Django！</title>
+      <link href="/2024/01/13/Django%E5%BF%AB%E9%80%9F%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/"/>
+      <url>/2024/01/13/Django%E5%BF%AB%E9%80%9F%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/</url>
+      
+        <content type="html"><![CDATA[<h4 id="1-关于Django，你需要知道"><a href="#1-关于Django，你需要知道" class="headerlink" title="1.关于Django，你需要知道"></a>1.关于Django，你需要知道</h4><p>Django是基于python的网络架构，可以快速开发安全可维护的网站，功能简洁完整，学习门槛低，可以在短时间内开发出一个完备的管理系统。</p><h4 id="2-初识django，小可有三头六臂"><a href="#2-初识django，小可有三头六臂" class="headerlink" title="2.初识django，小可有三头六臂"></a>2.初识django，小可有三头六臂</h4><ul><li><p>使用场景：企业管理系统，内容的管理，运维的管理。</p></li><li><p>优点：安全框架，复用度高，简洁高效，快速开发。</p></li><li><p>缺点：不易并行开发（例如京东，淘宝等高并行的软件——比如抢手机的时候），不适合简单项目。</p></li></ul><p>设计思想：DRY（don’t repeat youself），MVT架构。</p><p><strong>简洁，简洁，还是**的简洁。</strong></p><p><img src="https://raw.githubusercontent.com/Gmorning730/BlogImage/main/clipboard-image-1705133979.png" alt="MVT架构图"></p><h4 id="3-安装构建第一个项目"><a href="#3-安装构建第一个项目" class="headerlink" title="3.安装构建第一个项目"></a>3.安装构建第一个项目</h4><p>Django的安装需要先安装如下几个软件：Anaconda包管理工具，Pycharm IDE，然后使用conda安装django（社区版本的pycharm没有自带django需要自行安装）<br>使用anaconda创建一个新的环境，安装所需要的django包。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda isntall django # 若长时间加载中需要更换安装源</span><br></pre></td></tr></table></figure><p>安装好之后便可以直接在命令行完成项目的创建</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(Django) E:\Pycharm\Django&gt; django-admin startproject recruitment</span><br></pre></td></tr></table></figure><p>运行启动项目，0.0.0.0表示开放所有端口</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(Django) E:\Pycharm\Django\recruitment&gt; python manage.py runserver 0.0.0.0:8000</span><br></pre></td></tr></table></figure><p>浏览器运行：127.0.0.1：8000可以看到安装成功的界面如下：<br><img src="https://raw.githubusercontent.com/Gmorning730/BlogImage/main/clipboard-image-1705150891.png" alt="clipboard-image-1705150891"></p><p>此时访问 <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a>  你会发现网页报错,这是因为此时我们还没有初始化我们的数据库，因此目前无法访问管理后台。使用如下命令进行初始化：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(Django) E:\Pycharm\Django\recruitment&gt; python manage.py makemigrations</span><br><span class="line">(Django) E:\Pycharm\Django\recruitment&gt; python manage.py migrate</span><br></pre></td></tr></table></figure><p>此时django会将默认的model同步到数据库，创建相应的表。接下来需要创建超级管理员账户</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(Django) E:\Pycharm\Django\recruitment&gt; python manage.py createsuperuser</span><br></pre></td></tr></table></figure><p>依次输入姓名，账户邮箱，密码登信息，依次输入完成创建。此时访问管理网站<a href="http://127.0.0.1:8000/admin">http:127.0.0.1:8000/admin</a> 可以看到账户登录页面：<br><img src="https://raw.githubusercontent.com/Gmorning730/BlogImage/main/20240113211555.png" alt="20240113211555"></p><p>输入刚才创建的管理用户，登录成功如下界面：</p><p><img src="https://raw.githubusercontent.com/Gmorning730/BlogImage/main/20240113212833.png" alt="20240113212833"></p><p>点击user可以看到我们刚才创建的管理员账户：<br><img src="https://raw.githubusercontent.com/Gmorning730/BlogImage/main/20240113212926.png" alt="20240113212926"></p><p>大功告成！你可以欣赏你的第一个django项目了<br><code>print(hello ，django！)</code></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Django </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Linux入门学习</title>
+      <link href="/2024/01/09/Linux%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/"/>
+      <url>/2024/01/09/Linux%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/</url>
+      
+        <content type="html"><![CDATA[<h4 id="安装文件"><a href="#安装文件" class="headerlink" title="安装文件"></a>安装文件</h4><p>Linux的安装文件通常有两种.deb 和.rpm，根据自己内核版本选择不同的安装文件 ，通常情况下ubuntu可以选择deb版本的文件，直接双击变会自动打开商店安装。（有点类似exe执行文件）</p><ul><li>Deb： Debian 系统及其派生发行版（如Ubuntu）使用 Deb 格式的软件包。Deb 包通常有 .deb 文件扩展名。</li><li>RPM： Red Hat 系统及其派生发行版（如Fedora、CentOS、openSUSE）使用 RPM 格式的软件包。RPM 包通常有 .rpm 文件扩展名。</li></ul><h4 id="创建软连接"><a href="#创建软连接" class="headerlink" title="创建软连接"></a>创建软连接</h4><p>创建软连接有点类似于window下的“快捷方式”，它创建了一个指向目标文件或目录的一个“指针”。你可以这么去理解，他并不是实际文件的copy，而提供了一个类似“任意门”的功能可以让你去使用链接到的文件或目录。</p><p>在 Linux 中，可以使用 <code>ln -s</code> 命令来创建软链接,-s 选项表示创建符号链接。例如如下创建案例：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /path/to/original/file /path/to/link</span><br></pre></td></tr></table></figure><p>应用需要在</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/bin</span><br></pre></td></tr></table></figure><p>目录下才可以全局访问，因此需要创建软连接在该目录下。当然，你也可以将文件拷贝到该目录下<code>/usr/local/bin</code>如果你有足够的内存的话（我想大部分人都不会这么做）</p><p>还有一种方法你可以待运行文件的路径添加到path路径，我们接下来会详细讨论这种方法。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;export PATH=/home/morning/xx/bin:$PATH&quot; &gt;&gt; ~/.profile &amp;&amp; source ~/.profile</span><br><span class="line"></span><br></pre></td></tr></table></figure><h4 id="设置-path-路径"><a href="#设置-path-路径" class="headerlink" title="设置 path 路径"></a>设置 path 路径</h4><p>path路径</p><h4 id="chown-授权"><a href="#chown-授权" class="headerlink" title="chown 授权"></a>chown 授权</h4>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello World</title>
       <link href="/2024/01/07/hello-world/"/>
       <url>/2024/01/07/hello-world/</url>
@@ -27,7 +65,7 @@
       
         <tags>
             
-            <tag> Linux 工具使用 </tag>
+            <tag> Linux </tag>
             
         </tags>
       
@@ -46,7 +84,7 @@
       
         <tags>
             
-            <tag> Linux 工具使用 </tag>
+            <tag> Linux </tag>
             
         </tags>
       
