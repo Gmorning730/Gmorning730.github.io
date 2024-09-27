@@ -4,6 +4,44 @@
   
     
     <entry>
+      <title>CMake学习</title>
+      <link href="/2023/12/08/CMake%E5%AD%A6%E4%B9%A0/"/>
+      <url>/2023/12/08/CMake%E5%AD%A6%E4%B9%A0/</url>
+      
+        <content type="html"><![CDATA[<h4 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h4><p>CMake是一个跨平台的编译工具，可以用简单的语句来描述所有平台的编译过程。 CMake能够输出各种各样的makefile或者project文件，能测试编译器所支持的C++特性。 CMake的配置文件叫做CMakeLists.txt。 CMake不直接生成最终的软件，而是生成标准的构建文件，然后再用一般的构建方式使用。 CMake可以帮助开发者在复杂的项目中管理编译关系，简化二次开发的过程。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Linux 工具使用 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>BOLT学习笔记</title>
+      <link href="/2023/12/05/BOLT%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <url>/2023/12/05/BOLT%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<h4 id="背景"><a href="#背景" class="headerlink" title="背景:"></a>背景:</h4><p>数据中心应用程序通常非常庞大和复杂，因此代码布局成为提高性能的重要优化手段。BOLT是一个链接后优化工具，它可以对已经编译和链接的二进制文件进行重新代码布局和优化，以提高程序的性能。文章证明了，虽然在早期注入配置文件可以通过更多的优化使用，但稍后注入可以更准确的使用信息，以获得更好的代码布局。</p><h4 id="主要贡献"><a href="#主要贡献" class="headerlink" title="主要贡献:"></a>主要贡献:</h4><ul><li>描述了基于LLVM架构的优化</li><li>后链接优化可更好的利用分析数据</li><li>编译时、链接时、后链接 FDO 之间互补而非互相替代。</li></ul><h4 id="BOLT工具介绍"><a href="#BOLT工具介绍" class="headerlink" title="BOLT工具介绍:"></a>BOLT工具介绍:</h4><p>BOLT是一个后链接二进制优化工具，通过重新布局应用程序的二进制代码，从而减少指令缓存（ICache）不命中率。因为ICache不命中会对性能产生重大影响，特别是对于那些指令密集型的应用程序。</p><h4 id="执行流程"><a href="#执行流程" class="headerlink" title="执行流程:"></a>执行流程:</h4><p>1.BOLT首先分析程序的执行，收集关于分支和基于性能的信息。<br>2.它利用这些信息来重新布局二进制文件的函数和基本块，以减少ICache的不命中。<br>3.通过调整代码以利用现代硬件上的其他特性。</p><h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><p>与其他优化技术相比，BOLT具有更好的性能提升，尤其是对于大型、长时间运行的应用程序。BOLT不需要源代码进行优化，可以直接在二进制文件上操作。</p><h4 id="工作机制"><a href="#工作机制" class="headerlink" title="工作机制"></a>工作机制</h4><h5 id="profile-guided的反馈"><a href="#profile-guided的反馈" class="headerlink" title="profile-guided的反馈:"></a>profile-guided的反馈:</h5><p>BOLT首先运行应用程序以收集其执行profile。这通常使用Linux的perf工具来完成。通过这种方式，BOLT能够了解哪些代码块和函数被频繁地执行和访问。</p><h5 id="二进制解析和转换"><a href="#二进制解析和转换" class="headerlink" title="二进制解析和转换:"></a>二进制解析和转换:</h5><p>BOLT解析输入的二进制文件，创建内部的中间表示。<br>这允许BOLT修改和优化二进制代码，而不必担心具体的汇编语法和细节。</p><h5 id="代码重新布局"><a href="#代码重新布局" class="headerlink" title="代码重新布局:"></a>代码重新布局:</h5><p>根据前面收集的性能数据，BOLT会重新布局函数和基本块。<br>在函数内部，BOLT可以重新布局基本块，频繁执行的路径）在ICache中连续。</p><h5 id="输出优化后的二进制"><a href="#输出优化后的二进制" class="headerlink" title="输出优化后的二进制:"></a>输出优化后的二进制:</h5><p>经过所有这些转换和优化后，BOLT会生成一个新的、优化过的二进制文件。这个新的二进制文件可以替代原始文件，通常会有更好的性能表现。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Linux 工具使用 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>布尔逻辑和逻辑门</title>
       <link href="/2023/12/03/%E5%B8%83%E5%B0%94%E9%80%BB%E8%BE%91%E5%92%8C%E9%80%BB%E8%BE%91%E9%97%A8/"/>
       <url>/2023/12/03/%E5%B8%83%E5%B0%94%E9%80%BB%E8%BE%91%E5%92%8C%E9%80%BB%E8%BE%91%E9%97%A8/</url>
@@ -613,6 +651,19 @@
     
     
     <entry>
+      <title>Hello World</title>
+      <link href="/2023/07/11/hello-world/"/>
+      <url>/2023/07/11/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a><br>哈哈: ![tupian]</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>分布式计算系统-chapter1绪论</title>
       <link href="/2023/07/09/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-chapter1%E7%BB%AA%E8%AE%BA/"/>
       <url>/2023/07/09/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-chapter1%E7%BB%AA%E8%AE%BA/</url>
@@ -626,19 +677,6 @@
             <tag> 数据科学与工程 </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hello World</title>
-      <link href="/2023/07/05/hello-world/"/>
-      <url>/2023/07/05/hello-world/</url>
-      
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a><br>哈哈: ![tupian]</p>]]></content>
-      
-      
       
     </entry>
     
